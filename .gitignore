@@ -1,0 +1,15 @@
+# ignore everything
+/*
+
+# keep these
+!.github
+!**/.gitignore
+!/package.json
+!/package-lock.json
+!/bin
+!/lib
+!/map.js
+!/tap-snapshots
+!/test
+!/README*
+!/LICENSE*
