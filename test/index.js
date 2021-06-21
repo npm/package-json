@@ -3,6 +3,16 @@ const { resolve } = require('path')
 const t = require('tap')
 const PackageJson = require('../lib/index.js')
 
+const redactCwd = (path) => {
+  const normalizePath = p => p
+    .replace(/\\+/g, '/')
+    .replace(/\r\n/g, '\n')
+  return normalizePath(path)
+    .replace(new RegExp(normalizePath(process.cwd()), 'g'), '{CWD}')
+}
+
+t.cleanSnapshot = (str) => redactCwd(str)
+
 t.test('read a valid package.json', async t => {
   const path = t.testdir({
     'package.json': JSON.stringify({

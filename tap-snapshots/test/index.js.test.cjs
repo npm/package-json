@@ -230,7 +230,7 @@ exports[`test/index.js TAP update long package.json > should properly write upda
   },
   "scripts": {
     "dumpconf": "env | grep npm | sort | uniq",
-    "preversion": "bash scripts/update-authors.sh && git add AUTHORS && git commit -m \\"update AUTHORS\\" || true",
+    "preversion": "bash scripts/update-authors.sh && git add AUTHORS && git commit -m /"update AUTHORS/" || true",
     "licenses": "licensee --production --errors-only",
     "test": "tap",
     "check-coverage": "tap",
