@@ -13,7 +13,7 @@
     "snap": "tap",
     "test": "tap",
     "npmclilint": "npmcli-lint",
-    "lint": "npm run npmclilint -- \"*.*js\" \"lib/**/*.*js\" \"test/**/*.*js\"",
+    "lint": "npm run npmclilint -- \"lib/*.*js\" \"test/*.*js\"",
     "lintfix": "npm run lint -- --fix",
     "posttest": "npm run lint --",
     "postsnap": "npm run lintfix --"
@@ -27,5 +27,8 @@
   "devDependencies": {
     "@npmcli/lint": "^1.0.1",
     "tap": "^15.0.9"
+  },
+  "dependencies": {
+    "json-parse-even-better-errors": "^2.3.1"
   }
 }
