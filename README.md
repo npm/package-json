@@ -2,7 +2,6 @@
 
 [![npm version](https://img.shields.io/npm/v/@npmcli/package-json)](https://www.npmjs.com/package/@npmcli/package-json)
 [![Build Status](https://img.shields.io/github/workflow/status/npm/package-json/node-ci)](https://github.com/npm/package-json)
-[![License](https://img.shields.io/github/license/npm/package-json)](https://github.com/npm/package-json/blob/master/LICENSE)
 
 Programmatic API to update `package.json` files. Updates and saves files the
 same way the **npm cli** handles them.
