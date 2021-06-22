@@ -145,3 +145,33 @@ t.test('update long package.json', async t => {
     'should properly write updated pacakge.json contents'
   )
 })
+
+t.test('update package.json with invalid content', async t => {
+  const path = t.testdir({
+    valid: {
+      'package.json': JSON.stringify({
+        name: 'valid-package',
+        version: '1.0.0',
+      }),
+    },
+    invalid: {
+      'package.json': '"not a json object"',
+    },
+  })
+
+  // invalid existing package.json manifest, valid content being updated
+  let pkgJson = await PackageJson.load(resolve(path, 'invalid'))
+  t.throws(
+    () => pkgJson.update({ scripts: { foo: 'foo' } }),
+    { code: 'EPACKAGEJSONUPDATE' },
+    'should throw if trying to update an invalid manifest'
+  )
+
+  pkgJson = await PackageJson.load(resolve(path, 'valid'))
+  // valid existing package.json manifest, invalid content being updated
+  t.throws(
+    () => pkgJson.update('foo'),
+    { code: 'EPACKAGEJSONUPDATE' },
+    'should throw if trying to update an invalid manifest'
+  )
+})
