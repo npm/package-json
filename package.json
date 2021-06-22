@@ -1,5 +1,5 @@
 {
-  "name": "@npmcli/update-package-json",
+  "name": "@npmcli/package-json",
   "version": "1.0.0",
   "description": "Programmatic API to update package.json",
   "main": "lib/index.js",
