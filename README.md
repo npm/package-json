@@ -57,6 +57,8 @@ Creates a new instance of `PackageJson`.
 - `path`: `String` that points to the folder from where to read the
 `package.json` from
 
+---
+
 ### `async PackageJson.load()`
 
 Loads the `package.json` at location determined in the `path` option of
@@ -75,6 +77,8 @@ await pkgJson.load()
 Throws an error in case the `package.json` file is missing or has invalid
 contents.
 
+---
+
 ### **static** `async PackageJson.load(path)`
 
 Convenience static method that returns a new instance and loads the contents of
@@ -91,6 +95,8 @@ Loads contents of the `package.json` file located at `./`:
 const PackageJson = require('@npmcli/package-json')
 const pkgJson = await PackageJson.load('./')
 ```
+
+---
 
 ### `PackageJson.update(content)`
 
@@ -118,6 +124,8 @@ pkgJson.update({
 })
 ```
 
+---
+
 ### **get** `PackageJson.content`
 
 Getter that retrieves the normalized `Object` read from the loaded
@@ -134,6 +142,15 @@ pkgJson.content
 //   version: '1.0.0'
 // }
 ```
+
+---
+
+### `async PackageJson.save()`
+
+Saves the current `content` to the same location used when initializing
+this instance.
+
+<br />
 
 ## Related
 
