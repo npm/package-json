@@ -1,6 +1,6 @@
 {
   "name": "@npmcli/package-json",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Programmatic API to update package.json",
   "main": "lib/index.js",
   "files": [
