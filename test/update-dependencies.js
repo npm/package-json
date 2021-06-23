@@ -250,16 +250,8 @@ t.test('deps are alphabetized', async t => {
       },
     },
   })
-  t.strictSame(
-    result,
-    {
-      dependencies: {
-        a: '1.0.0',
-        b: '1.0.0',
-        d: '1.0.0',
-        c: '1.0.0',
-      },
-    },
+  t.matchSnapshot(
+    JSON.stringify(result),
     'should order dep keys'
   )
 })
