@@ -123,6 +123,29 @@ pkgJson.update({
 })
 ```
 
+**NOTE:** When working with dependencies, it's important to provide values for
+all known dependency types as the update logic has some interdependence in
+between these properties.
+
+### Example:
+
+A safe way to add a `devDependency` AND remove all peer dependencies of an
+existing `package.json`:
+
+```js
+const PackageJson = require('@npmcli/package-json')
+const pkgJson = await PackageJson.load('./')
+pkgJson.update({
+  dependencies: pkgJson.content.dependencies,
+  devDependencies: {
+    ...pkgJson.content.devDependencies,
+    foo: '^foo@1.0.0',
+  },
+  peerDependencies: {},
+  optionalDependencies: pkgJson.content.optionalDependencies,
+})
+```
+
 ---
 
 ### **get** `PackageJson.content`

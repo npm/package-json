@@ -17,9 +17,6 @@ t.test('no original content', async t => {
       dependencies: {
         abbrev: '^1.0.0',
       },
-      optionalDependencies: undefined,
-      devDependencies: undefined,
-      peerDependencies: undefined,
     },
     'should return new deps content'
   )
@@ -49,10 +46,6 @@ t.test('existing content', async t => {
       version: '1.0.0',
       bin: './file.js',
       funding: 'http://example.com',
-      dependencies: undefined,
-      optionalDependencies: undefined,
-      devDependencies: undefined,
-      peerDependencies: undefined,
     },
     'should write new package.json with tree data'
   )
@@ -89,9 +82,6 @@ t.test('unchanged package.json', async t => {
       dependencies: {
         abbrev: '^1.0.0',
       },
-      optionalDependencies: undefined,
-      devDependencies: undefined,
-      peerDependencies: undefined,
     },
     'should keep package.json with same data'
   )
@@ -124,12 +114,9 @@ t.test('existing package.json with optionalDependencies', async t => {
       version: '1.0.0',
       bin: './file.js',
       funding: 'http://example.com',
-      dependencies: undefined,
       optionalDependencies: {
         abbrev: '^1.0.0',
       },
-      devDependencies: undefined,
-      peerDependencies: undefined,
     },
     'should add only optionalDependencies to result content'
   )
@@ -174,8 +161,6 @@ t.test('existing package.json with optionalDependencies and some existing depend
       optionalDependencies: {
         abbrev: '^1.0.0',
       },
-      devDependencies: undefined,
-      peerDependencies: undefined,
     },
     'should add only optionalDependencies to result content and preserve original dependencies'
   )
@@ -212,8 +197,6 @@ t.test('preserve deps duplicated in peer and prod', async t => {
       dependencies: {
         foo: '2.x',
       },
-      optionalDependencies: undefined,
-      devDependencies: undefined,
     },
     'peer/prod duplication preserved'
   )
@@ -224,6 +207,7 @@ t.test('remove peer/prod dupes from both if removed from peer', async t => {
     content: {
       name: 'duplicated-peer',
       version: '1.0.0',
+      dependencies: {},
       peerDependencies: {
         bar: '1.x',
       },
@@ -244,15 +228,12 @@ t.test('remove peer/prod dupes from both if removed from peer', async t => {
     {
       name: 'duplicated-peer',
       version: '1.0.0',
-      dependencies: undefined,
       // no dupe
       peerDependencies: {
         bar: '1.x',
       },
-      optionalDependencies: undefined,
-      devDependencies: undefined,
     },
-    'peer/prod duplication preserved'
+    'peer/prod foo removed'
   )
 })
 
@@ -278,10 +259,45 @@ t.test('deps are alphabetized', async t => {
         d: '1.0.0',
         c: '1.0.0',
       },
-      optionalDependencies: undefined,
-      devDependencies: undefined,
-      peerDependencies: undefined,
     },
     'should order dep keys'
+  )
+})
+
+t.test('missing dependency when updating previously duplicated dep', async t => {
+  const result = updateDeps({
+    content: {
+      name: 'duplicated-peer',
+      version: '1.0.0',
+      dependencies: {},
+      peerDependencies: {
+        foo: '2.x',
+      },
+    },
+    originalContent: {
+      name: 'duplicated-peer',
+      version: '1.0.0',
+      dependencies: {
+        foo: '1.x',
+      },
+      peerDependencies: {
+        foo: '1.x',
+      },
+    },
+  })
+  t.strictSame(
+    result,
+    {
+      name: 'duplicated-peer',
+      version: '1.0.0',
+      // no dupe
+      dependencies: {
+        foo: '2.x',
+      },
+      peerDependencies: {
+        foo: '2.x',
+      },
+    },
+    'should include dependency in result even if property was missing in update'
   )
 })

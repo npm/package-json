@@ -144,6 +144,21 @@ t.test('update long package.json', async t => {
     fs.readFileSync(resolve(path, 'package.json'), 'utf8'),
     'should properly write updated pacakge.json contents'
   )
+
+  // updates a single property
+  pkgJson.update({
+    scripts: {
+      ...pkgJson.content.scripts,
+      'new-foo': 'touch foo',
+    },
+  })
+
+  await pkgJson.save()
+
+  t.matchSnapshot(
+    fs.readFileSync(resolve(path, 'package.json'), 'utf8'),
+    'should only update the defined property'
+  )
 })
 
 t.test('update package.json with invalid content', async t => {
