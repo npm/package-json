@@ -5,6 +5,10 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
+exports[`test/index.js TAP custom formatting > should save back custom format to package.json 1`] = `
+{"name":"foo","version":"1.0.1","description":"Lorem ipsum dolor"}
+`
+
 exports[`test/index.js TAP invalid package.json data > should save updated content to package.json and ignore invalid data 1`] = `
 this! is! not! json!
 `

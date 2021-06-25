@@ -190,3 +190,24 @@ t.test('update package.json with invalid content', async t => {
     'should throw if trying to update an invalid manifest'
   )
 })
+
+t.test('custom formatting', async t => {
+  const path = t.testdir({
+    'package.json': JSON.stringify({
+      name: 'foo',
+      version: '1.0.0',
+    }, null, 0),
+  })
+
+  const pkgJson = await PackageJson.load(path)
+  pkgJson.update({
+    version: '1.0.1',
+    description: 'Lorem ipsum dolor',
+  })
+  await pkgJson.save()
+
+  t.matchSnapshot(
+    fs.readFileSync(resolve(path, 'package.json'), 'utf8'),
+    'should save back custom format to package.json'
+  )
+})
