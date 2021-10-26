@@ -29,6 +29,7 @@
     "tap": "^15.0.9"
   },
   "dependencies": {
+    "@isaacs/string-locale-compare": "^1.1.0",
     "json-parse-even-better-errors": "^2.3.1"
   }
 }
