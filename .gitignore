@@ -1,15 +1,25 @@
-# ignore everything
+# This file is automatically added by @npmcli/template-oss. Do not edit.
+
+# ignore everything in the root
 /*
 
 # keep these
-!.github
+!/.eslintrc.local.*
 !**/.gitignore
-!/package.json
-!/package-lock.json
-!/bin
-!/lib
+!/docs/
+!/tap-snapshots/
+!/test/
 !/map.js
-!/tap-snapshots
-!/test
+!/scripts/
 !/README*
 !/LICENSE*
+!/CHANGELOG*
+!/.commitlintrc.js
+!/.eslintrc.js
+!/.github/
+!/.gitignore
+!/.npmrc
+!/SECURITY.md
+!/bin/
+!/lib/
+!/package.json
