@@ -122,49 +122,50 @@ t.test('existing package.json with optionalDependencies', async t => {
   )
 })
 
-t.test('existing package.json with optionalDependencies and some existing dependencies', async t => {
-  const result = updateDeps({
-    content: {
-      name: 'missing-package-json-optional-test',
-      version: '1.0.0',
-      dependencies: {
-        abbrev: '^1.0.0',
-        foo: '^1.0.0',
-        bar: '^1.2.3',
+t.test('existing package.json with optionalDependencies and some existing dependencies',
+  async t => {
+    const result = updateDeps({
+      content: {
+        name: 'missing-package-json-optional-test',
+        version: '1.0.0',
+        dependencies: {
+          abbrev: '^1.0.0',
+          foo: '^1.0.0',
+          bar: '^1.2.3',
+        },
+        optionalDependencies: {
+          abbrev: '^1.0.0',
+        },
       },
-      optionalDependencies: {
-        abbrev: '^1.0.0',
+      originalContent: {
+        name: 'existing-package-json-optional-test',
+        version: '1.0.0',
+        bin: './file.js',
+        funding: 'http://example.com',
+        dependencies: {
+          foo: '^1.0.0',
+          bar: '^1.2.3',
+        },
       },
-    },
-    originalContent: {
-      name: 'existing-package-json-optional-test',
-      version: '1.0.0',
-      bin: './file.js',
-      funding: 'http://example.com',
-      dependencies: {
-        foo: '^1.0.0',
-        bar: '^1.2.3',
+    })
+    t.strictSame(
+      result,
+      {
+        name: 'existing-package-json-optional-test',
+        version: '1.0.0',
+        bin: './file.js',
+        funding: 'http://example.com',
+        dependencies: {
+          foo: '^1.0.0',
+          bar: '^1.2.3',
+        },
+        optionalDependencies: {
+          abbrev: '^1.0.0',
+        },
       },
-    },
+      'should add only optionalDependencies to result content and preserve original dependencies'
+    )
   })
-  t.strictSame(
-    result,
-    {
-      name: 'existing-package-json-optional-test',
-      version: '1.0.0',
-      bin: './file.js',
-      funding: 'http://example.com',
-      dependencies: {
-        foo: '^1.0.0',
-        bar: '^1.2.3',
-      },
-      optionalDependencies: {
-        abbrev: '^1.0.0',
-      },
-    },
-    'should add only optionalDependencies to result content and preserve original dependencies'
-  )
-})
 
 t.test('preserve deps duplicated in peer and prod', async t => {
   const result = updateDeps({

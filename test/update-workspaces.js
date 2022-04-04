@@ -39,7 +39,7 @@ t.test('new workspaces content, no originalContent', async t => {
 
 t.test('new workspaces content, some originalContent but no ws', async t => {
   const result = updateWorkspaces({
-    content: { workspaces: ['./packages/*']},
+    content: { workspaces: ['./packages/*'] },
     originalContent: { name: 'foo', version: '1.1.1' },
   })
   t.strictSame(
@@ -55,7 +55,7 @@ t.test('new workspaces content, some originalContent but no ws', async t => {
 
 t.test('new workspaces content, some originalContent WITH ws', async t => {
   const result = updateWorkspaces({
-    content: { workspaces: ['./a', './b']},
+    content: { workspaces: ['./a', './b'] },
     originalContent: {
       name: 'foo',
       version: '1.1.1',
@@ -75,7 +75,7 @@ t.test('new workspaces content, some originalContent WITH ws', async t => {
 
 t.test('add new workspace, remove some other one', async t => {
   const result = updateWorkspaces({
-    content: { workspaces: ['foo', 'bar']},
+    content: { workspaces: ['foo', 'bar'] },
     originalContent: {
       name: 'foo',
       version: '1.1.1',
@@ -96,7 +96,7 @@ t.test('add new workspace, remove some other one', async t => {
 t.test('new INVALID workspaces content, some originalContent', async t => {
   t.throws(
     () => updateWorkspaces({
-      content: { workspaces: 1234},
+      content: { workspaces: 1234 },
       originalContent: {
         name: 'foo',
         version: '1.1.1',
@@ -107,7 +107,7 @@ t.test('new INVALID workspaces content, some originalContent', async t => {
   )
   t.throws(
     () => updateWorkspaces({
-      content: { workspaces: ['a', 'b', 1234]},
+      content: { workspaces: ['a', 'b', 1234] },
       originalContent: {
         name: 'foo',
         version: '1.1.1',
