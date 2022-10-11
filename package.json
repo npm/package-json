@@ -29,7 +29,7 @@
     "tap": "^16.0.1"
   },
   "dependencies": {
-    "json-parse-even-better-errors": "^2.3.1"
+    "json-parse-even-better-errors": "^3.0.0"
   },
   "repository": {
     "type": "git",
