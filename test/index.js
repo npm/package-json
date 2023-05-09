@@ -89,8 +89,10 @@ t.test('read missing package.json', async t => {
   const path = t.testdirName
   return t.rejects(
     PackageJson.load(path),
-    /package.json not found/,
-    'should throw package.json not found error'
+    {
+      message: /package.json/,
+      code: 'ENOENT',
+    }
   )
 })
 

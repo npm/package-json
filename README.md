@@ -100,6 +100,20 @@ const pkgJson = await PackageJson.load('./')
 
 ---
 
+### `async PackageJson.normalize()`
+
+Like `load` but intended for reading package.json files in a
+node_modules tree.  Some light normalization is done to ensure that it
+is ready for use in `@npmcli/arborist`
+
+---
+
+### **static** `async PackageJson.normalize(path)`
+
+Convenience static method like `load` but for calling `normalize`
+
+---
+
 ### `PackageJson.update(content)`
 
 Updates the contents of the `package.json` with the `content` provided.
