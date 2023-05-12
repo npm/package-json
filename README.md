@@ -114,6 +114,20 @@ Convenience static method like `load` but for calling `normalize`
 
 ---
 
+---
+
+### `async PackageJson.prepare()`
+
+Like `load` but intended for reading package.json files before publish.
+
+---
+
+### **static** `async PackageJson.prepare(path)`
+
+Convenience static method like `load` but for calling `prepare`
+
+---
+
 ### `PackageJson.update(content)`
 
 Updates the contents of the `package.json` with the `content` provided.

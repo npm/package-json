@@ -62,7 +62,7 @@ t.test('clean up bundleDependencies', async t => {
         dependencies: { a: '1.2.3' },
       }),
     }))
-    t.strictSame(content.bundleDependencies, [])
+    t.has(content, { bundleDependencies: undefined })
   })
 
   t.test('handle bundleDependencies object', async t => {
@@ -83,7 +83,7 @@ t.test('clean up scripts', async t => {
         scripts: 1234,
       }),
     }))
-    t.notHasStrict(content, 'scripts')
+    t.has(content, { scripts: undefined })
   })
 
   t.test('delete non-string script targets', async t => {
@@ -119,14 +119,14 @@ t.test('cleanup bins', async t => {
     const { content } = await pkg.normalize(t.testdir({
       'package.json': JSON.stringify({ bin: 'y' }),
     }))
-    t.notHasStrict(content, 'bin')
+    t.has(content, { bin: undefined })
   })
 
   t.test('remove non-object bin', async t => {
     const { content } = await pkg.normalize(t.testdir({
       'package.json': JSON.stringify({ bin: 1234 }),
     }))
-    t.notHasStrict(content, 'bin')
+    t.has(content, { bin: undefined })
   })
 
   t.test('remove non-string bin values', async t => {
@@ -153,7 +153,7 @@ t.test('dedupe optional deps out of regular deps', async t => {
         },
       }),
     }))
-    t.notHasStrict(content, 'dependencies')
+    t.has(content, { dependencies: undefined })
     t.strictSame(content.optionalDependencies, { whowins: '1.2.3-optional' })
   })
 
@@ -181,7 +181,7 @@ t.test('dedupe optional deps out of regular deps', async t => {
         },
       }),
     }))
-    t.notHasStrict(content, 'dependencies')
+    t.has(content, { dependencies: undefined })
     t.strictSame(content.optionalDependencies, { whowins: '1.2.3-optional' })
   })
 })
@@ -298,7 +298,7 @@ t.test('strip _fields', async t => {
       _lodash: true,
     }),
   }))
-  t.notHasStrict(content, '_lodash')
+  t.has(content, { _lodash: undefined })
 })
 
 // For now this is just checking one of the many side effects of
@@ -309,5 +309,25 @@ t.test('normalize bin', async t => {
       bin: false,
     }),
   }))
-  t.notHasStrict(content, 'bin')
+  t.has(content, { bin: undefined })
+})
+
+t.test('skipping steps', async t => {
+  const packageJson = {
+    _lodash: true,
+    dependencies: { a: '' },
+    optionalDependencies: { a: '' },
+    bundledDependencies: true,
+    funding: 'just a string',
+    scripts: { test: './node_modules/.bin/test' },
+    bin: { a: ['invalid array'] },
+  }
+  const { content } = await pkg.normalize(t.testdir({
+    'package.json': JSON.stringify(packageJson),
+  }), { steps: [] })
+  t.strictSame(content, packageJson)
+  t.has(content, {
+    bundleDependencies: undefined,
+    _id: undefined,
+  })
 })
