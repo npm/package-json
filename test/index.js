@@ -29,19 +29,6 @@ t.test('read a valid package.json', async t => {
   )
 })
 
-t.test('start new package.json, update and write', async t => {
-  const path = t.testdir({})
-
-  const pkgJson = new PackageJson(path)
-  pkgJson.update({ name: 'foo' })
-  await pkgJson.save()
-
-  t.matchSnapshot(
-    fs.readFileSync(resolve(path, 'package.json'), 'utf8'),
-    'should properly save contentn to a package.json'
-  )
-})
-
 t.test('read, update content and write', async t => {
   const path = t.testdir({
     'package.json': JSON.stringify({
@@ -60,28 +47,6 @@ t.test('read, update content and write', async t => {
   t.matchSnapshot(
     fs.readFileSync(resolve(path, 'package.json'), 'utf8'),
     'should properly save contennt to a package.json'
-  )
-})
-
-t.test('invalid package.json data', async t => {
-  const path = t.testdir({
-    'package.json': 'this! is! not! json!',
-  })
-  let pkgJson
-  try {
-    pkgJson = await PackageJson.load(path)
-  } catch (err) {
-    pkgJson = new PackageJson(path)
-  }
-
-  pkgJson.update({
-    name: 'foo',
-    version: '1.0.0',
-  })
-
-  t.matchSnapshot(
-    fs.readFileSync(resolve(path, 'package.json'), 'utf8'),
-    'should save updated content to package.json and ignore invalid data'
   )
 })
 
@@ -163,36 +128,6 @@ t.test('update long package.json', async t => {
   )
 })
 
-t.test('update package.json with invalid content', async t => {
-  const path = t.testdir({
-    valid: {
-      'package.json': JSON.stringify({
-        name: 'valid-package',
-        version: '1.0.0',
-      }),
-    },
-    invalid: {
-      'package.json': '"not a json object"',
-    },
-  })
-
-  // invalid existing package.json manifest, valid content being updated
-  let pkgJson = await PackageJson.load(resolve(path, 'invalid'))
-  t.throws(
-    () => pkgJson.update({ scripts: { foo: 'foo' } }),
-    { code: 'EPACKAGEJSONUPDATE' },
-    'should throw if trying to update an invalid manifest'
-  )
-
-  pkgJson = await PackageJson.load(resolve(path, 'valid'))
-  // valid existing package.json manifest, invalid content being updated
-  t.throws(
-    () => pkgJson.update('foo'),
-    { code: 'EPACKAGEJSONUPDATE' },
-    'should throw if trying to update an invalid manifest'
-  )
-})
-
 t.test('custom formatting', async t => {
   const path = t.testdir({
     'package.json': JSON.stringify({
@@ -212,4 +147,25 @@ t.test('custom formatting', async t => {
     fs.readFileSync(resolve(path, 'package.json'), 'utf8'),
     'should save back custom format to package.json'
   )
+})
+
+t.test('no path means no filename', async t => {
+  const p = new PackageJson()
+  t.equal(p.filename, undefined)
+})
+
+t.test('cannot normalize with no content', async t => {
+  const p = new PackageJson()
+  await t.rejects(p.normalize(), {
+    message: 'Can not normalize without existing data',
+  })
+})
+
+t.test('cannot update with no content', async t => {
+  const p = new PackageJson()
+  await t.throws(() => {
+    p.update({})
+  }, {
+    message: 'Can not update without existing data',
+  })
 })

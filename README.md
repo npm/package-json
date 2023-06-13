@@ -52,19 +52,15 @@ await pkgJson.save()
 
 ## API:
 
-### `constructor(path)`
+### `constructor()`
 
-Creates a new instance of `PackageJson`.
-
-- `path`: `String` that points to the folder from where to read the
-`package.json` from
+Creates a new empty instance of `PackageJson`.
 
 ---
 
-### `async PackageJson.load()`
+### `async PackageJson.load(path)`
 
-Loads the `package.json` at location determined in the `path` option of
-the constructor.
+Loads the `package.json` at the given path.
 
 ### Example:
 
@@ -72,8 +68,8 @@ Loads contents of the `package.json` file located at `./`:
 
 ```js
 const PackageJson = require('@npmcli/package-json')
-const pkgJson = new PackageJson('./')
-await pkgJson.load()
+const pkgJson = new PackageJson()
+await pkgJson.load('./')
 ```
 
 Throws an error in case the `package.json` file is missing or has invalid
@@ -102,29 +98,27 @@ const pkgJson = await PackageJson.load('./')
 
 ### `async PackageJson.normalize()`
 
-Like `load` but intended for reading package.json files in a
-node_modules tree.  Some light normalization is done to ensure that it
-is ready for use in `@npmcli/arborist`
+Intended for normalizing package.json files in a node_modules tree.
+Some light normalization is done to ensure that it is ready for use in
+`@npmcli/arborist`
 
 ---
 
 ### **static** `async PackageJson.normalize(path)`
 
-Convenience static method like `load` but for calling `normalize`
-
----
+Convenience static that calls `load` before calling `normalize`
 
 ---
 
 ### `async PackageJson.prepare()`
 
-Like `load` but intended for reading package.json files before publish.
+Like `normalize` but intended for preparing package.json files for publish.
 
 ---
 
 ### **static** `async PackageJson.prepare(path)`
 
-Convenience static method like `load` but for calling `prepare`
+Convenience static that calls `load` before calling `prepare`
 
 ---
 
@@ -137,7 +131,7 @@ Updates the contents of the `package.json` with the `content` provided.
 
 Special properties like `dependencies`, `devDependencies`,
 `optionalDependencies`, `peerDependencies` will have special logic to handle
-the update of these options, such as deduplications.
+the update of these options, such as sorting and deduplication.
 
 ### Example:
 
@@ -200,22 +194,8 @@ pkgJson.content
 
 ### `async PackageJson.save()`
 
-Saves the current `content` to the same location used when initializing
-this instance.
-
-<br />
-
-## Related
-
-When you make a living out of reading and writing `package.json` files, you end
-up with quite the amount of packages dedicated to it, the **npm cli** also
-uses:
-
-- [read-package-json-fast](https://github.com/npm/read-package-json-fast) reads
-and normalizes `package.json` files the way the **npm cli** expects it.
-- [read-package-json](https://github.com/npm/read-package-json) reads and
-normalizes more info from your `package.json` file. Used by `npm@6` and in
-`npm@7` for publishing.
+Saves the current `content` to the same location used when calling
+`load()`.
 
 ## LICENSE
 
