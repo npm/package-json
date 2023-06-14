@@ -5,15 +5,32 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
-exports[`test/index.js TAP custom formatting > should save back custom format to package.json 1`] = `
+exports[`test/index.js TAP create with data > should save package.json with name 1`] = `
+{
+  "name": "create-test"
+}
+
+`
+
+exports[`test/index.js TAP create without data > should save empty package.json 1`] = `
+{}
+
+`
+
+exports[`test/index.js TAP load create:true empty dir > should save empty package.json 1`] = `
+{}
+
+`
+
+exports[`test/index.js TAP load create:true existing parseable package.json > package.json should match existing 1`] = `
+{"name":"test-package"}
+`
+
+exports[`test/index.js TAP load custom formatting > should save back custom format to package.json 1`] = `
 {"name":"foo","version":"1.0.1","description":"Lorem ipsum dolor"}
 `
 
-exports[`test/index.js TAP invalid package.json data > should save updated content to package.json and ignore invalid data 1`] = `
-this! is! not! json!
-`
-
-exports[`test/index.js TAP read, update content and write > should properly save contennt to a package.json 1`] = `
+exports[`test/index.js TAP load read, update content and write > should properly save contennt to a package.json 1`] = `
 {
         "name": "foo",
         "version": "1.0.1",
@@ -22,14 +39,7 @@ exports[`test/index.js TAP read, update content and write > should properly save
 
 `
 
-exports[`test/index.js TAP start new package.json, update and write > should properly save contentn to a package.json 1`] = `
-{
-  "name": "foo"
-}
-
-`
-
-exports[`test/index.js TAP update long package.json > should only update the defined property 1`] = `
+exports[`test/index.js TAP load update long package.json > should only update the defined property 1`] = `
 {
   "version": "7.18.1",
   "name": "npm",
@@ -274,7 +284,7 @@ exports[`test/index.js TAP update long package.json > should only update the def
 
 `
 
-exports[`test/index.js TAP update long package.json > should properly write updated pacakge.json contents 1`] = `
+exports[`test/index.js TAP load update long package.json > should properly write updated pacakge.json contents 1`] = `
 {
   "version": "7.18.1",
   "name": "npm",
