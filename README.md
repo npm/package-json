@@ -58,13 +58,25 @@ Creates a new empty instance of `PackageJson`.
 
 ---
 
-### `async PackageJson.load(path)`
+### `async PackageJson.create(path)`
 
-Loads the `package.json` at the given path.
+Creates an empty `package.json` at the given path. If one already exists
+it will be overwritten.
+
+---
+
+### `async PackageJson.load(path, opts = {})`
+
+Loads a `package.json` at the given path.
+
+- `opts`: `Object` can contain:
+  - `create`: `Boolean` if true, a new package.json will be created if
+      one does not already exist. Will not clobber ane existing
+      package.json that can not be parsed.
 
 ### Example:
 
-Loads contents of the `package.json` file located at `./`:
+Loads contents of a `package.json` file located at `./`:
 
 ```js
 const PackageJson = require('@npmcli/package-json')
@@ -72,7 +84,7 @@ const pkgJson = new PackageJson()
 await pkgJson.load('./')
 ```
 
-Throws an error in case the `package.json` file is missing or has invalid
+Throws an error in case a `package.json` file is missing or has invalid
 contents.
 
 ---
@@ -80,14 +92,14 @@ contents.
 ### **static** `async PackageJson.load(path)`
 
 Convenience static method that returns a new instance and loads the contents of
-the `package.json` file from that location.
+a `package.json` file from that location.
 
 - `path`: `String` that points to the folder from where to read the
 `package.json` from
 
 ### Example:
 
-Loads contents of the `package.json` file located at `./`:
+Loads contents of a `package.json` file located at `./`:
 
 ```js
 const PackageJson = require('@npmcli/package-json')
@@ -124,7 +136,7 @@ Convenience static that calls `load` before calling `prepare`
 
 ### `PackageJson.update(content)`
 
-Updates the contents of the `package.json` with the `content` provided.
+Updates the contents of a `package.json` with the `content` provided.
 
 - `content`: `Object` containing the properties to be updated/replaced in the
 `package.json` file.
