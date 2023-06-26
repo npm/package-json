@@ -4,7 +4,16 @@ const pkg = require('../')
 const rpj = require('read-package-json-fast')
 
 const testMethods = {
-  '@npmcli/package-json': async (t, testdir = {}, { dir = (v) => v, ...opts } = {}) => {
+  // eslint-disable-next-line max-len
+  '@npmcli/package-json - with changes': async (t, testdir = {}, { dir = (v) => v, ...opts } = {}) => {
+    const p = t.testdir(testdir)
+    const changes = []
+    const normalized = await pkg.normalize(dir(p), { ...opts, changes })
+    t.matchSnapshot(changes)
+    return normalized
+  },
+  // eslint-disable-next-line max-len
+  '@npmcli/package-json - no changes': async (t, testdir = {}, { dir = (v) => v, ...opts } = {}) => {
     const p = t.testdir(testdir)
     return pkg.normalize(dir(p), opts)
   },

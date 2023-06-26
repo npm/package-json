@@ -70,9 +70,7 @@ it will be overwritten.
 Loads a `package.json` at the given path.
 
 - `opts`: `Object` can contain:
-  - `create`: `Boolean` if true, a new package.json will be created if
-      one does not already exist. Will not clobber ane existing
-      package.json that can not be parsed.
+  - `create`: `Boolean` if true, a new package.json will be created if one does not already exist. Will not clobber ane existing package.json that can not be parsed.
 
 ### Example:
 
@@ -84,18 +82,15 @@ const pkgJson = new PackageJson()
 await pkgJson.load('./')
 ```
 
-Throws an error in case a `package.json` file is missing or has invalid
-contents.
+Throws an error in case a `package.json` file is missing or has invalid contents.
 
 ---
 
 ### **static** `async PackageJson.load(path)`
 
-Convenience static method that returns a new instance and loads the contents of
-a `package.json` file from that location.
+Convenience static method that returns a new instance and loads the contents of a `package.json` file from that location.
 
-- `path`: `String` that points to the folder from where to read the
-`package.json` from
+- `path`: `String` that points to the folder from where to read the `package.json` from
 
 ### Example:
 
@@ -110,15 +105,27 @@ const pkgJson = await PackageJson.load('./')
 
 ### `async PackageJson.normalize()`
 
-Intended for normalizing package.json files in a node_modules tree.
-Some light normalization is done to ensure that it is ready for use in
-`@npmcli/arborist`
+Intended for normalizing package.json files in a node_modules tree.  Some light normalization is done to ensure that it is ready for use in `@npmcli/arborist`
+
+- `path`: `String` that points to the folder from where to read the `package.json` from
+- `opts`: `Object` can contain:
+  - `strict`: `Boolean` enables optional strict mode when applying the `normalizeData` step
+  - `steps`: `Array` optional normalization steps that will be applied to the `package.json` file, replacing the default steps
+  - `root`: `Path` optional git root to provide when applying the `gitHead` step
+  - `changes`: `Array` if provided, a message about each change that was made to the packument will be added to this array
 
 ---
 
-### **static** `async PackageJson.normalize(path)`
+### **static** `async PackageJson.normalize(path, opts = {})`
 
 Convenience static that calls `load` before calling `normalize`
+
+- `path`: `String` that points to the folder from where to read the `package.json` from
+- `opts`: `Object` can contain:
+  - `strict`: `Boolean` enables optional strict mode when applying the `normalizeData` step
+  - `steps`: `Array` optional normalization steps that will be applied to the `package.json` file, replacing the default steps
+  - `root`: `Path` optional git root to provide when applying the `gitHead` step
+  - `changes`: `Array` if provided, a message about each change that was made to the packument will be added to this array
 
 ---
 
@@ -128,9 +135,16 @@ Like `normalize` but intended for preparing package.json files for publish.
 
 ---
 
-### **static** `async PackageJson.prepare(path)`
+### **static** `async PackageJson.prepare(path, opts = {})`
 
 Convenience static that calls `load` before calling `prepare`
+
+- `path`: `String` that points to the folder from where to read the `package.json` from
+- `opts`: `Object` can contain:
+  - `strict`: `Boolean` enables optional strict mode when applying the `normalizeData` step
+  - `steps`: `Array` optional normalization steps that will be applied to the `package.json` file, replacing the default steps
+  - `root`: `Path` optional git root to provide when applying the `gitHead` step
+  - `changes`: `Array` if provided, a message about each change that was made to the packument will be added to this array
 
 ---
 
