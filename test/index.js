@@ -225,3 +225,22 @@ t.test('cannot update with no content', async t => {
     message: /Can not update without content/,
   })
 })
+
+t.test('fix', async t => {
+  const path = t.testdir({
+    'package.json': JSON.stringify({
+      name: '@npmcli/test-package ',
+      version: 'v1.0.0',
+      bin: '@npmcli/test-package',
+      dependencies: ['lodash'],
+      scripts: true,
+      repository: 'github.com/npm/test-package',
+    }),
+  })
+  const { content } = await PackageJson.fix(path)
+  t.strictSame(content.name, '@npmcli/test-package')
+  t.strictSame(content.version, '1.0.0')
+  t.strictSame(content.bin, { 'test-package': '@npmcli/test-package' })
+  t.strictSame(content.dependencies, { lodash: '' })
+  t.strictSame(content.repository, { type: 'git', url: 'github.com/npm/test-package' })
+})

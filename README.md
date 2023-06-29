@@ -148,6 +148,12 @@ Convenience static that calls `load` before calling `prepare`
 
 ---
 
+### `async PackageJson.fix()`
+
+Like `normalize` but intended for the `npm pkg fix` command.
+
+---
+
 ### `PackageJson.update(content)`
 
 Updates the contents of a `package.json` with the `content` provided.
