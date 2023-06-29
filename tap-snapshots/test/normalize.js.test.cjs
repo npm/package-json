@@ -30,7 +30,7 @@ Array [
 exports[`test/normalize.js TAP @npmcli/package-json - with changes clean up bundleDependencies handle bundleDependencies: false > must match snapshot 1`] = `
 Array [
   "Deleted incorrect \\"bundledDependencies\\"",
-  "\\"bundleDepdencies\\" was changed from \\"false\\" to \\"[]\\"",
+  "\\"bundleDependencies\\" was changed from \\"false\\" to \\"[]\\"",
   "removed invalid \\"scripts\\"",
 ]
 `
@@ -38,7 +38,7 @@ Array [
 exports[`test/normalize.js TAP @npmcli/package-json - with changes clean up bundleDependencies handle bundleDependencies: true > must match snapshot 1`] = `
 Array [
   "Deleted incorrect \\"bundledDependencies\\"",
-  "\\"bundleDepdencies\\" was auto-populated from \\"dependencies\\"",
+  "\\"bundleDependencies\\" was auto-populated from \\"dependencies\\"",
   "removed invalid \\"scripts\\"",
 ]
 `
@@ -46,7 +46,7 @@ Array [
 exports[`test/normalize.js TAP @npmcli/package-json - with changes clean up bundleDependencies handle bundleDependencies: true with no deps > must match snapshot 1`] = `
 Array [
   "Deleted incorrect \\"bundledDependencies\\"",
-  "\\"bundleDepdencies\\" was auto-populated from \\"dependencies\\"",
+  "\\"bundleDependencies\\" was auto-populated from \\"dependencies\\"",
   "removed invalid \\"scripts\\"",
 ]
 `
@@ -54,7 +54,7 @@ Array [
 exports[`test/normalize.js TAP @npmcli/package-json - with changes clean up bundleDependencies handle bundledDependencies: true > must match snapshot 1`] = `
 Array [
   "Deleted incorrect \\"bundledDependencies\\"",
-  "\\"bundleDepdencies\\" was auto-populated from \\"dependencies\\"",
+  "\\"bundleDependencies\\" was auto-populated from \\"dependencies\\"",
   "removed invalid \\"scripts\\"",
 ]
 `
