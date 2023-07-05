@@ -33,6 +33,7 @@
   "dependencies": {
     "@npmcli/git": "^4.1.0",
     "glob": "^10.2.2",
+    "hosted-git-info": "^6.1.1",
     "json-parse-even-better-errors": "^3.0.0",
     "normalize-package-data": "^5.0.0",
     "npm-normalize-package-bin": "^3.0.1",
