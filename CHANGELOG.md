@@ -1,5 +1,22 @@
 # Changelog
 
+## [4.0.0](https://github.com/npm/package-json/compare/v3.1.1...v4.0.0) (2023-07-05)
+
+### ⚠️ BREAKING CHANGES
+
+* the `path` parameter is now tied to `load` and not the class constructor.
+
+### Features
+
+* [`e2bc4f3`](https://github.com/npm/package-json/commit/e2bc4f3a0d93f8271b6186f5babcaf2196955e36) [#43](https://github.com/npm/package-json/pull/43) add fix method (@wraithgar)
+* [`7ddb1d1`](https://github.com/npm/package-json/commit/7ddb1d1b39d35cc078703c3813f4b1d5a077bdca) [#41](https://github.com/npm/package-json/pull/41) add changes array to normalize functions (#41) (@wraithgar)
+* [`4775bf3`](https://github.com/npm/package-json/commit/4775bf352caaaabc6b2ce252a758e61f3adeb143) add create functionality (@wraithgar)
+
+### Bug Fixes
+
+* [`ed68a28`](https://github.com/npm/package-json/commit/ed68a28d76e45490dc05467f04115efd312fd1d9) [#43](https://github.com/npm/package-json/pull/43) typo in changes message (@wraithgar)
+* [`c3d11c2`](https://github.com/npm/package-json/commit/c3d11c2a91d7191386a0975e9770cd3c2486a9e5) move path parameter to `load` (@wraithgar)
+
 ## [3.1.1](https://github.com/npm/package-json/compare/v3.1.0...v3.1.1) (2023-06-06)
 
 ### Bug Fixes
