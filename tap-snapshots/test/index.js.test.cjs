@@ -30,7 +30,7 @@ exports[`test/index.js TAP load custom formatting > should save back custom form
 {"name":"foo","version":"1.0.1","description":"Lorem ipsum dolor"}
 `
 
-exports[`test/index.js TAP load read, update content and write > should properly save contennt to a package.json 1`] = `
+exports[`test/index.js TAP load read, update content and write > should properly save content to a package.json 1`] = `
 {
         "name": "foo",
         "version": "1.0.1",
