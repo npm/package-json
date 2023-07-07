@@ -182,6 +182,15 @@ for (const [name, testFix] of Object.entries(testMethods)) {
         t.strictSame(content.scripts, {})
       })
     })
+    t.test('bundleDependencies', async t => {
+      t.test('null', async t => {
+        const testdir = {
+          'package.json': pkg({ bundleDependencies: null }),
+        }
+        const { content } = await testFix(t, testdir)
+        t.notHas(content, 'bundleDependencies')
+      })
+    })
     t.test('binRefs', async t => {
       t.test('scoped name', async t => {
         const testdir = {
