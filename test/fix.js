@@ -135,6 +135,15 @@ for (const [name, testFix] of Object.entries(testMethods)) {
         const { content } = await testFix(t, testdir)
         t.strictSame(content.version, '1.0.0')
       })
+      t.test('strict', async t => {
+        const testdir = {
+          'package.json': pkg({ version: 'v1.0.0-00' }),
+        }
+        await t.rejects(
+          testFix(t, testdir, { strict: true }),
+          { message: 'Invalid version' }
+        )
+      })
     })
     t.test('fixRepositoryField', async t => {
       t.test('repositories array', async t => {
