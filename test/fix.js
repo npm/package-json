@@ -208,6 +208,27 @@ for (const [name, testFix] of Object.entries(testMethods)) {
         const { content } = await testFix(t, testdir)
         t.strictSame(content.bin, { 'test-package': '@npmcil/test-package' })
       })
+      t.test('array', async t => {
+        const testdir = {
+          'package.json': pkg({ bin: ['@npmcil/test-package'] }),
+        }
+        const { content } = await testFix(t, testdir)
+        t.strictSame(content.bin, { 'test-package': '@npmcil/test-package' })
+      })
+      t.test('no bin target', async t => {
+        const testdir = {
+          'package.json': pkg({ bin: { 'test-package': '/' } }),
+        }
+        const { content } = await testFix(t, testdir)
+        t.notHas(content, 'bin')
+      })
+      t.test('empty bin name', async t => {
+        const testdir = {
+          'package.json': pkg({ bin: { '/': 'test-slash' } }),
+        }
+        const { content } = await testFix(t, testdir)
+        t.notHas(content, 'bin')
+      })
     })
     t.test('fixDependencies', async t => {
       t.test('string dependencies', async t => {

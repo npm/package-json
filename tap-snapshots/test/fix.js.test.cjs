@@ -5,8 +5,32 @@
  * Make sure to inspect the output below.  Do not ignore changes!
  */
 'use strict'
+exports[`test/fix.js TAP with changes binRefs array > must match snapshot 1`] = `
+Array [
+  "\\"bin\\" was converted to an object",
+]
+`
+
+exports[`test/fix.js TAP with changes binRefs empty bin name > must match snapshot 1`] = `
+Array [
+  "removed invalid \\"bin[/]\\"",
+  "empty \\"bin\\" was removed",
+]
+`
+
+exports[`test/fix.js TAP with changes binRefs no bin target > must match snapshot 1`] = `
+Array [
+  "removed invalid \\"bin[test-package]\\"",
+  "empty \\"bin\\" was removed",
+]
+`
+
 exports[`test/fix.js TAP with changes binRefs scoped name > must match snapshot 1`] = `
-Array []
+Array [
+  "\\"bin\\" was converted to an object",
+  "\\"bin[@npmcli/test-package]\\" was renamed to \\"bin[test-package]\\"",
+  "\\"bin[test-package]\\" script name was cleaned",
+]
 `
 
 exports[`test/fix.js TAP with changes bundleDependencies null > must match snapshot 1`] = `

@@ -85,6 +85,7 @@ exports[`test/normalize.js TAP @npmcli/package-json - with changes cleanup bins 
 Array [
   "Deleted incorrect \\"bundledDependencies\\"",
   "Removed invalid \\"scripts\\"",
+  "\\"bin\\" was converted to an object",
 ]
 `
 
@@ -99,6 +100,8 @@ exports[`test/normalize.js TAP @npmcli/package-json - with changes cleanup bins 
 Array [
   "Deleted incorrect \\"bundledDependencies\\"",
   "Removed invalid \\"scripts\\"",
+  "removed invalid \\"bin[y]\\"",
+  "removed invalid \\"bin[z]\\"",
 ]
 `
 
