@@ -190,6 +190,13 @@ for (const [name, testFix] of Object.entries(testMethods)) {
         const { content } = await testFix(t, testdir)
         t.strictSame(content.scripts, {})
       })
+      t.test('strips node_modules/.bin', async t => {
+        const testdir = {
+          'package.json': pkg({ scripts: { test: './node_modules/.bin/test-script' } }),
+        }
+        const { content } = await testFix(t, testdir)
+        t.strictSame(content.scripts, { test: 'test-script' })
+      })
     })
     t.test('bundleDependencies', async t => {
       t.test('null', async t => {

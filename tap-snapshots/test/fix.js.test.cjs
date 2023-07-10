@@ -127,3 +127,9 @@ Array [
   "Removed invalid \\"scripts\\"",
 ]
 `
+
+exports[`test/fix.js TAP with changes scriptpath strips node_modules/.bin > must match snapshot 1`] = `
+Array [
+  "scripts entry \\"test\\" was fixed to remove node_modules/.bin reference",
+]
+`
