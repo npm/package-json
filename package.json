@@ -36,7 +36,6 @@
     "hosted-git-info": "^6.1.1",
     "json-parse-even-better-errors": "^3.0.0",
     "normalize-package-data": "^5.0.0",
-    "npm-normalize-package-bin": "^3.0.1",
     "proc-log": "^3.0.0",
     "semver": "^7.5.3"
   },
