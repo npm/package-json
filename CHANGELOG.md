@@ -1,5 +1,22 @@
 # Changelog
 
+## [4.0.1](https://github.com/npm/package-json/compare/v4.0.0...v4.0.1) (2023-07-17)
+
+### Bug Fixes
+
+* [`04bc9cf`](https://github.com/npm/package-json/commit/04bc9cf4934a4eedb26aa90b376ac7be5878c502) [#49](https://github.com/npm/package-json/pull/49) don't report node_modules/.bin fix unless it happened (@wraithgar)
+* [`3c1cb66`](https://github.com/npm/package-json/commit/3c1cb6610b4452872d35b8d3ed23e08400057649) [#49](https://github.com/npm/package-json/pull/49) inline bin normalization code (@wraithgar)
+* [`e97e423`](https://github.com/npm/package-json/commit/e97e423f814edb803872076731b680dad84f184e) [#48](https://github.com/npm/package-json/pull/48) properly parse strict flag on version check (#48) (@wraithgar)
+* [`3bcf2fd`](https://github.com/npm/package-json/commit/3bcf2fd7c831636e0ed493efee7a94a30c6ad9d8) [#47](https://github.com/npm/package-json/pull/47) only report bundleDependencies change if it was changed (@wraithgar)
+* [`09d8573`](https://github.com/npm/package-json/commit/09d85733fd7c0f9a3b60f87a346acb3e2ba0a9f0) [#47](https://github.com/npm/package-json/pull/47) pull in fix logic from normalize-package-data (@wraithgar)
+* [`60a09da`](https://github.com/npm/package-json/commit/60a09da079d8b0838c2e2b3efe140936db00bfac) [#44](https://github.com/npm/package-json/pull/44) check for changes array during author step (#44) (@wraithgar)
+
+### Dependencies
+
+* [`afb6ece`](https://github.com/npm/package-json/commit/afb6eceaf1f3b166310068864a67195bfe494a78) [#49](https://github.com/npm/package-json/pull/49) remove npm-normalize-package-bin
+* [`ee84e3a`](https://github.com/npm/package-json/commit/ee84e3ac56837e581a165ee71ec4c4772dc68dbb) [#47](https://github.com/npm/package-json/pull/47) add `hosted-git-info@6.1.1`
+* [`ef45a1a`](https://github.com/npm/package-json/commit/ef45a1ab40b48108fe6e775c67547cb466db87fa) [#47](https://github.com/npm/package-json/pull/47) add `semver@7.5.3`
+
 ## [4.0.0](https://github.com/npm/package-json/compare/v3.1.1...v4.0.0) (2023-07-05)
 
 ### ⚠️ BREAKING CHANGES
