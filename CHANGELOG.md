@@ -1,5 +1,21 @@
 # Changelog
 
+## [5.0.0](https://github.com/npm/package-json/compare/v4.0.1...v5.0.0) (2023-08-15)
+
+### ⚠️ BREAKING CHANGES
+
+* support for node 14 has been removed
+
+### Bug Fixes
+
+* [`6345d76`](https://github.com/npm/package-json/commit/6345d761461edb9f52e6bb2739909f8dac92d8cf) [#53](https://github.com/npm/package-json/pull/53) drop node14 support (@lukekarrys)
+
+### Dependencies
+
+* [`f08b79e`](https://github.com/npm/package-json/commit/f08b79eceefe4e513ae01b79aae59418e7789348) [#55](https://github.com/npm/package-json/pull/55) bump normalize-package-data from 5.0.0 to 6.0.0
+* [`5c4de21`](https://github.com/npm/package-json/commit/5c4de2145727548b13f0e025f740c37f1253ac74) [#52](https://github.com/npm/package-json/pull/52) bump hosted-git-info from 6.1.1 to 7.0.0
+* [`02e0ef2`](https://github.com/npm/package-json/commit/02e0ef2382a09fd9e0543b6babaff22bcd7dab13) [#51](https://github.com/npm/package-json/pull/51) bump @npmcli/git from 4.1.0 to 5.0.0
+
 ## [4.0.1](https://github.com/npm/package-json/compare/v4.0.0...v4.0.1) (2023-07-17)
 
 ### Bug Fixes
