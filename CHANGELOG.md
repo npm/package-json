@@ -1,5 +1,28 @@
 # Changelog
 
+## [5.0.1](https://github.com/npm/package-json/compare/v5.0.0...v5.0.1) (2024-04-07)
+
+### Bug Fixes
+
+* [`fda5722`](https://github.com/npm/package-json/commit/fda5722eff835f4898d52ec11be768e3ea270691) [#87](https://github.com/npm/package-json/pull/87) perf: lazy load un-common dependencies for npm run (#87) (@H4ad)
+* [`71f09d6`](https://github.com/npm/package-json/commit/71f09d6fdd8881a832153a08705582366cd3878b) [#88](https://github.com/npm/package-json/pull/88) perf: only import necessary functions from semver (#88) (@H4ad)
+
+### Documentation
+
+* [`6ebb3c9`](https://github.com/npm/package-json/commit/6ebb3c92e24f012417e69b14b1e1a8fa0f4dd1f0) [#85](https://github.com/npm/package-json/pull/85) readme: fix broken badge URL (#85) (@10xLaCroixDrinker)
+
+### Chores
+
+* [`66e0c23`](https://github.com/npm/package-json/commit/66e0c23fa0ee4c24b7bdb184c0959f5d92c0fe90) [#80](https://github.com/npm/package-json/pull/80) postinstall for dependabot template-oss PR (@lukekarrys)
+* [`00e4bbb`](https://github.com/npm/package-json/commit/00e4bbbf52dc82b3609d36922a35f2f3e3881c6d) [#80](https://github.com/npm/package-json/pull/80) bump @npmcli/template-oss from 4.21.1 to 4.21.3 (@dependabot[bot])
+* [`d784aa8`](https://github.com/npm/package-json/commit/d784aa8a2083f0e2998d488704acdab770a4515b) [#77](https://github.com/npm/package-json/pull/77) postinstall for dependabot template-oss PR (@lukekarrys)
+* [`efeee22`](https://github.com/npm/package-json/commit/efeee2289d51085f1b5087c21ebf3332eafdd9b8) [#77](https://github.com/npm/package-json/pull/77) bump @npmcli/template-oss from 4.19.0 to 4.21.1 (@dependabot[bot])
+* [`a4df4cf`](https://github.com/npm/package-json/commit/a4df4cfed032c6f6e793affa6b2c4225a8dd89dc) [#56](https://github.com/npm/package-json/pull/56) bump read-package-json from 6.0.4 to 7.0.0 (@dependabot[bot])
+* [`f7c048a`](https://github.com/npm/package-json/commit/f7c048a36dedefa6dbd505db56113e46fe58963a) [#58](https://github.com/npm/package-json/pull/58) postinstall for dependabot template-oss PR (@lukekarrys)
+* [`6240313`](https://github.com/npm/package-json/commit/62403130b9f8c0014df0d6f2a490d2f4edf30f3a) [#58](https://github.com/npm/package-json/pull/58) bump @npmcli/template-oss from 4.18.1 to 4.19.0 (@dependabot[bot])
+* [`5ab117c`](https://github.com/npm/package-json/commit/5ab117c3068968f480ac24da8e385eef70b33532) [#57](https://github.com/npm/package-json/pull/57) postinstall for dependabot template-oss PR (@lukekarrys)
+* [`f56390e`](https://github.com/npm/package-json/commit/f56390eeafafd0c9e80e4c5ad311c619db7ea52a) [#57](https://github.com/npm/package-json/pull/57) bump @npmcli/template-oss from 4.18.0 to 4.18.1 (@dependabot[bot])
+
 ## [5.0.0](https://github.com/npm/package-json/compare/v4.0.1...v5.0.0) (2023-08-15)
 
 ### ⚠️ BREAKING CHANGES
