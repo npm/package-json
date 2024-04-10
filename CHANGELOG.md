@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.0.2](https://github.com/npm/package-json/compare/v5.0.1...v5.0.2) (2024-04-10)
+
+### Bug Fixes
+
+* [`a67317b`](https://github.com/npm/package-json/commit/a67317bf88ca983425c98505dbe01dbd30d7ca6d) [#90](https://github.com/npm/package-json/pull/90) perf: lazy load hosted git info on normalize (#90) (@H4ad)
+* [`06df698`](https://github.com/npm/package-json/commit/06df698635c1ee7bd18d68e868a673d2de773864) [#89](https://github.com/npm/package-json/pull/89) perf: lazy load glob on normalize.js (#89) (@H4ad)
+
 ## [5.0.1](https://github.com/npm/package-json/compare/v5.0.0...v5.0.1) (2024-04-07)
 
 ### Bug Fixes
