@@ -1,5 +1,11 @@
 # Changelog
 
+## [5.0.3](https://github.com/npm/package-json/compare/v5.0.2...v5.0.3) (2024-04-12)
+
+### Dependencies
+
+* [`28f09ed`](https://github.com/npm/package-json/commit/28f09ed50fdfa338cab7113cf294f91d1398f02f) [#92](https://github.com/npm/package-json/pull/92) `proc-log@4.0.0` (#92)
+
 ## [5.0.2](https://github.com/npm/package-json/compare/v5.0.1...v5.0.2) (2024-04-10)
 
 ### Bug Fixes
