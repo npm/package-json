@@ -225,3 +225,11 @@ t.test('cannot update with no content', async t => {
     message: /Can not update without content/,
   })
 })
+
+t.test('can set data', async t => {
+  const p = new PackageJson().fromContent({ data: 1 })
+  t.strictSame(p.content, { data: 1 })
+  await t.rejects(p.save(), {
+    message: /No package\.json to save to/,
+  })
+})
