@@ -1,5 +1,16 @@
 # Changelog
 
+## [5.1.0](https://github.com/npm/package-json/compare/v5.0.3...v5.1.0) (2024-04-22)
+
+### Features
+
+* [`17788d0`](https://github.com/npm/package-json/commit/17788d06aff54a4222ef61a35db8f113fc16de54) [#96](https://github.com/npm/package-json/pull/96) add fromContent method to set contents directly (#96) (@lukekarrys)
+
+### Chores
+
+* [`9597b84`](https://github.com/npm/package-json/commit/9597b8465c303081af34d49e25e6c3dbe6b8c524) [#94](https://github.com/npm/package-json/pull/94) postinstall for dependabot template-oss PR (@lukekarrys)
+* [`5e20e64`](https://github.com/npm/package-json/commit/5e20e64a7ce0a0ef1fe799751d02720bb69587b3) [#94](https://github.com/npm/package-json/pull/94) bump @npmcli/template-oss from 4.21.3 to 4.21.4 (@dependabot[bot])
+
 ## [5.0.3](https://github.com/npm/package-json/compare/v5.0.2...v5.0.3) (2024-04-12)
 
 ### Dependencies
