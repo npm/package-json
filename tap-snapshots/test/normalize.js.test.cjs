@@ -8,14 +8,12 @@
 exports[`test/normalize.js TAP @npmcli/package-json - with changes clean up bundleDependencies change name if bundleDependencies is not present > must match snapshot 1`] = `
 Array [
   "Deleted incorrect \\"bundledDependencies\\"",
-  "Removed invalid \\"scripts\\"",
 ]
 `
 
 exports[`test/normalize.js TAP @npmcli/package-json - with changes clean up bundleDependencies dont array-ify if its an array already > must match snapshot 1`] = `
 Array [
   "Deleted incorrect \\"bundledDependencies\\"",
-  "Removed invalid \\"scripts\\"",
 ]
 `
 
@@ -23,7 +21,6 @@ exports[`test/normalize.js TAP @npmcli/package-json - with changes clean up bund
 Array [
   "Deleted incorrect \\"bundledDependencies\\"",
   "\\"bundleDependencies\\" was changed from an object to an array",
-  "Removed invalid \\"scripts\\"",
 ]
 `
 
@@ -31,7 +28,6 @@ exports[`test/normalize.js TAP @npmcli/package-json - with changes clean up bund
 Array [
   "Deleted incorrect \\"bundledDependencies\\"",
   "\\"bundleDependencies\\" was changed from \\"false\\" to \\"[]\\"",
-  "Removed invalid \\"scripts\\"",
 ]
 `
 
@@ -39,7 +35,6 @@ exports[`test/normalize.js TAP @npmcli/package-json - with changes clean up bund
 Array [
   "Deleted incorrect \\"bundledDependencies\\"",
   "\\"bundleDependencies\\" was auto-populated from \\"dependencies\\"",
-  "Removed invalid \\"scripts\\"",
 ]
 `
 
@@ -47,7 +42,6 @@ exports[`test/normalize.js TAP @npmcli/package-json - with changes clean up bund
 Array [
   "Deleted incorrect \\"bundledDependencies\\"",
   "\\"bundleDependencies\\" was auto-populated from \\"dependencies\\"",
-  "Removed invalid \\"scripts\\"",
 ]
 `
 
@@ -55,7 +49,6 @@ exports[`test/normalize.js TAP @npmcli/package-json - with changes clean up bund
 Array [
   "Deleted incorrect \\"bundledDependencies\\"",
   "\\"bundleDependencies\\" was auto-populated from \\"dependencies\\"",
-  "Removed invalid \\"scripts\\"",
 ]
 `
 
@@ -77,14 +70,12 @@ Array [
 exports[`test/normalize.js TAP @npmcli/package-json - with changes cleanup bins delete string bin when no name > must match snapshot 1`] = `
 Array [
   "Deleted incorrect \\"bundledDependencies\\"",
-  "Removed invalid \\"scripts\\"",
 ]
 `
 
 exports[`test/normalize.js TAP @npmcli/package-json - with changes cleanup bins handle string when a name is set > must match snapshot 1`] = `
 Array [
   "Deleted incorrect \\"bundledDependencies\\"",
-  "Removed invalid \\"scripts\\"",
   "\\"bin\\" was converted to an object",
 ]
 `
@@ -92,14 +83,12 @@ Array [
 exports[`test/normalize.js TAP @npmcli/package-json - with changes cleanup bins remove non-object bin > must match snapshot 1`] = `
 Array [
   "Deleted incorrect \\"bundledDependencies\\"",
-  "Removed invalid \\"scripts\\"",
 ]
 `
 
 exports[`test/normalize.js TAP @npmcli/package-json - with changes cleanup bins remove non-string bin values > must match snapshot 1`] = `
 Array [
   "Deleted incorrect \\"bundledDependencies\\"",
-  "Removed invalid \\"scripts\\"",
   "removed invalid \\"bin[y]\\"",
   "removed invalid \\"bin[z]\\"",
 ]
@@ -108,7 +97,6 @@ Array [
 exports[`test/normalize.js TAP @npmcli/package-json - with changes convert funding string to object > must match snapshot 1`] = `
 Array [
   "Deleted incorrect \\"bundledDependencies\\"",
-  "Removed invalid \\"scripts\\"",
   "\\"funding\\" was changed to an object with a url attribute",
 ]
 `
@@ -117,7 +105,6 @@ exports[`test/normalize.js TAP @npmcli/package-json - with changes dedupe option
 Array [
   "Deleted incorrect \\"bundledDependencies\\"",
   "optionalDependencies.\\"whowins\\" was removed",
-  "Removed invalid \\"scripts\\"",
 ]
 `
 
@@ -126,21 +113,18 @@ Array [
   "Deleted incorrect \\"bundledDependencies\\"",
   "optionalDependencies.\\"whowins\\" was removed",
   "Empty \\"optionalDependencies\\" was removed",
-  "Removed invalid \\"scripts\\"",
 ]
 `
 
 exports[`test/normalize.js TAP @npmcli/package-json - with changes dedupe optional deps out of regular deps do not create regular deps if only optional specified > must match snapshot 1`] = `
 Array [
   "Deleted incorrect \\"bundledDependencies\\"",
-  "Removed invalid \\"scripts\\"",
 ]
 `
 
 exports[`test/normalize.js TAP @npmcli/package-json - with changes normalize bin > must match snapshot 1`] = `
 Array [
   "Deleted incorrect \\"bundledDependencies\\"",
-  "Removed invalid \\"scripts\\"",
 ]
 `
 
@@ -148,7 +132,6 @@ exports[`test/normalize.js TAP @npmcli/package-json - with changes set _id if na
 Array [
   "\\"_id\\" was set to a@1.2.3",
   "Deleted incorrect \\"bundledDependencies\\"",
-  "Removed invalid \\"scripts\\"",
 ]
 `
 
@@ -161,6 +144,5 @@ Array [
   "\\"_lodash\\" was removed",
   "\\"_id\\" was set to underscore@1.2.3",
   "Deleted incorrect \\"bundledDependencies\\"",
-  "Removed invalid \\"scripts\\"",
 ]
 `
