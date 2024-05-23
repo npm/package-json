@@ -197,6 +197,20 @@ for (const [name, testFix] of Object.entries(testMethods)) {
         const { content } = await testFix(t, testdir)
         t.strictSame(content.scripts, { test: 'test-script' })
       })
+      t.test('no scripts', async t => {
+        const testdir = {
+          'package.json': pkg({ scripts: undefined }),
+        }
+        const { content } = await testFix(t, testdir)
+        t.notHas(content, 'scripts')
+      })
+      t.test('falsy scripts', async t => {
+        const testdir = {
+          'package.json': pkg({ scripts: 0 }),
+        }
+        const { content } = await testFix(t, testdir)
+        t.strictSame(content.scripts, undefined)
+      })
     })
     t.test('bundleDependencies', async t => {
       t.test('null', async t => {

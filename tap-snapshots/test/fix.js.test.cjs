@@ -116,6 +116,16 @@ Array [
 ]
 `
 
+exports[`test/fix.js TAP with changes scriptpath falsy scripts > must match snapshot 1`] = `
+Array [
+  "Removed invalid \\"scripts\\"",
+]
+`
+
+exports[`test/fix.js TAP with changes scriptpath no scripts > must match snapshot 1`] = `
+Array []
+`
+
 exports[`test/fix.js TAP with changes scriptpath non-object script entry > must match snapshot 1`] = `
 Array [
   "Invalid scripts.\\"test\\" was removed",
