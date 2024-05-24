@@ -132,6 +132,30 @@ for (const [name, testPrepare] of Object.entries(testMethods)) {
         t.strictSame(content.bin, { echo: 'bin/echo' })
       })
 
+      t.test('bin trim prefix', async t => {
+        const { content } = await testPrepare(t, ({
+          'package.json': JSON.stringify({
+            name: 'bin-test',
+            bin: '../../../../../bin/echo',
+          }),
+          bin: { echo: '#!/bin/sh\n\necho "hello world"' },
+        }))
+        t.strictSame(content.bin, { 'bin-test': 'bin/echo' })
+      })
+
+      t.test('bin handles back slashes', async t => {
+        const { content } = await testPrepare(t, ({
+          'package.json': JSON.stringify({
+            name: 'bin-test',
+            bin: {
+              echo: '..\\..\\..\\bin\\echo',
+            },
+          }),
+          bin: { echo: '#!/bin/sh\n\necho "hello world"' },
+        }))
+        t.strictSame(content.bin, { echo: 'bin/echo' })
+      })
+
       t.test('directories.bin with bin', async t => {
         const { content } = await testPrepare(t, ({
           'package.json': JSON.stringify({
