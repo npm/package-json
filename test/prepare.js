@@ -154,6 +154,105 @@ for (const [name, testPrepare] of Object.entries(testMethods)) {
       t.end()
     })
 
+    t.test('man', t => {
+      t.test('resolves directory', async t => {
+        const { content } = await testPrepare(t, ({
+          'package.json': JSON.stringify({
+            directories: { man: './man' },
+          }),
+          man: { man1: { 'test.1': 'man test file' } },
+        }))
+        t.strictSame(content.man, ['man/man1/test.1'])
+      })
+
+      if (name === '@npmcli/package-json') {
+        t.test('non-string', async t => {
+          const { content } = await testPrepare(t, ({
+            'package.json': JSON.stringify({
+              man: 123,
+            }),
+          }))
+          t.has(content, { man: undefined })
+        })
+
+        t.test('good', async t => {
+          const { content } = await testPrepare(t, ({
+            'package.json': JSON.stringify({
+              man: './man/test.1',
+            }),
+          }))
+          t.strictSame(content.man, ['man/test.1'])
+        })
+
+        t.test('empty', async t => {
+          const { content } = await testPrepare(t, ({
+            'package.json': JSON.stringify({
+              man: [],
+            }),
+          }))
+          t.has(content, { man: undefined })
+        })
+
+        t.test('directories.man no prefix', async t => {
+          const { content } = await testPrepare(t, ({
+            'package.json': JSON.stringify({
+              name: 'man-test',
+              directories: {
+                man: './man',
+              },
+            }),
+            man: { 'test.1': '.TH man "test man page"' },
+          }))
+          t.strictSame(content.man, ['man/test.1'])
+        })
+
+        t.test('directories.man trim prefix', async t => {
+          const { content } = await testPrepare(t, ({
+            'package.json': JSON.stringify({
+              name: 'man-test',
+              directories: {
+                man: '../../../../../man',
+              },
+            }),
+            man: { 'test.1': '.TH man "test man page"' },
+          }))
+          t.strictSame(content.man, ['man/test.1'])
+        })
+
+        t.test('directories.man handles reversed slashes', async t => {
+          const { content } = await testPrepare(t, ({
+            'package.json': JSON.stringify({
+              name: 'man-test',
+              directories: {
+                man: '..\\..\\man',
+              },
+            }),
+            man: { 'test.1': '.TH man "test man page"' },
+          }))
+          t.strictSame(content.man, ['man/test.1'])
+        })
+
+        t.test('directories.man with man', async t => {
+          const { content } = await testPrepare(t, ({
+            'package.json': JSON.stringify({
+              name: 'man-test',
+              directories: {
+                man: './man',
+              },
+              man: '../../test.2',
+            }),
+            man: {
+              'test.1': '.TH man "test man page 1"',
+              'test.2': '.TH man "test man page 2"',
+            },
+          }))
+          t.strictSame(content.man, ['test.2'])
+        })
+      }
+
+      t.end()
+    })
+
     t.test('bundleDependencies', t => {
       t.test('true', async t => {
         const { content } = await testPrepare(t, ({
@@ -321,19 +420,6 @@ for (const [name, testPrepare] of Object.entries(testMethods)) {
           'README.txt': 'txt file',
         }))
         t.strictSame(content.readme, 'no extension')
-      })
-      t.end()
-    })
-
-    t.test('man', t => {
-      t.test('resolves directory', async t => {
-        const { content } = await testPrepare(t, ({
-          'package.json': JSON.stringify({
-            directories: { man: './man' },
-          }),
-          man: { man1: { 'test.1': 'man test file' } },
-        }))
-        t.strictSame(content.man, ['man/man1/test.1'])
       })
       t.end()
     })
