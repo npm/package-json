@@ -1,5 +1,19 @@
 # Changelog
 
+## [5.1.1](https://github.com/npm/package-json/compare/v5.1.0...v5.1.1) (2024-05-28)
+
+### Bug Fixes
+
+* [`54756d2`](https://github.com/npm/package-json/commit/54756d2d3186275b3928753134ab4973df188515) [#105](https://github.com/npm/package-json/pull/105) apply `securePath` to package bin (#105) (@antongolub)
+* [`46c563b`](https://github.com/npm/package-json/commit/46c563b367e9dfc8f6b4ca50852a1fa978f35e6a) add `normalizePackageMan` helper (#100) (@antongolub)
+* [`a974274`](https://github.com/npm/package-json/commit/a974274402d2b75268451212a274fd81f4b62c8e) prevent `directory.man` referencing outside the package root (#104) (@antongolub)
+* [`191b521`](https://github.com/npm/package-json/commit/191b521a2760679e39f590729dccb8b9c1d1163a) [#102](https://github.com/npm/package-json/pull/102) invalid scripts warning fixed for undefined scripts (#102) (@milaninfy)
+
+### Chores
+
+* [`45a2937`](https://github.com/npm/package-json/commit/45a2937360748fa4b5398ee4c4d8ad6cdb22ea90) [#98](https://github.com/npm/package-json/pull/98) bump @npmcli/template-oss to 4.22.0 (@lukekarrys)
+* [`90863c1`](https://github.com/npm/package-json/commit/90863c176e3065501902a8229bc2d9d956f59533) [#98](https://github.com/npm/package-json/pull/98) postinstall for dependabot template-oss PR (@lukekarrys)
+
 ## [5.1.0](https://github.com/npm/package-json/compare/v5.0.3...v5.1.0) (2024-04-22)
 
 ### Features
