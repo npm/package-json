@@ -1,6 +1,6 @@
 const t = require('tap')
 const pkg = require('../')
-const { join } = require('path')
+const { join } = require('node:path')
 
 const testMethods = {
   '@npmcli/package-json': async (t, testdir, { dir = (v) => v, ...opts } = {}) => {

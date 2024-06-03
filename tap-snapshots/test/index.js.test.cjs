@@ -527,3 +527,10 @@ exports[`test/index.js TAP load update long package.json > should properly write
 }
 
 `
+
+exports[`test/index.js TAP read package > must match snapshot 1`] = `
+Object {
+  "name": "foo",
+  "version": "1.0.0",
+}
+`

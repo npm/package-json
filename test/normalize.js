@@ -1,5 +1,5 @@
 const t = require('tap')
-const { join } = require('path')
+const { join } = require('node:path')
 const pkg = require('../')
 const rpj = require('read-package-json-fast')
 

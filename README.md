@@ -50,6 +50,15 @@ await pkgJson.save()
 // }
 ```
 
+There is also a helper function exported for opening a package.json file
+with no extra normalization or saving functionality.
+
+```js
+const { readPackage } = require('@npmcli/package-json/lib/read-package')
+const rawData = await readPackage('./package.json')
+// rawData will now have the package.json contents with no changes or normalizations
+```
+
 ## API:
 
 ### `constructor()`

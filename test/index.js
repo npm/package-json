@@ -1,5 +1,5 @@
-const fs = require('fs')
-const { resolve } = require('path')
+const fs = require('node:fs')
+const { join, resolve } = require('node:path')
 const t = require('tap')
 const PackageJson = require('../lib/index.js')
 
@@ -232,4 +232,16 @@ t.test('can set data', async t => {
   await t.rejects(p.save(), {
     message: /No package\.json to save to/,
   })
+})
+
+t.test('read package', async t => {
+  const { readPackage } = require('../lib/read-package')
+  const path = t.testdir({
+    'package.json': JSON.stringify({
+      name: 'foo',
+      version: '1.0.0',
+    }),
+  })
+  const data = await readPackage(join(path, 'package.json'))
+  t.matchSnapshot(data)
 })
