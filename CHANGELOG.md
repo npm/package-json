@@ -1,5 +1,11 @@
 # Changelog
 
+## [5.2.0](https://github.com/npm/package-json/compare/v5.1.1...v5.2.0) (2024-06-03)
+
+### Features
+
+* [`62e585a`](https://github.com/npm/package-json/commit/62e585a02250c8a6197fc49a0dad3da3bcb8f56f) [#106](https://github.com/npm/package-json/pull/106) add readPackage helper (#106) (@wraithgar)
+
 ## [5.1.1](https://github.com/npm/package-json/compare/v5.1.0...v5.1.1) (2024-05-28)
 
 ### Bug Fixes
