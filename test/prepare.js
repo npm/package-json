@@ -156,6 +156,19 @@ for (const [name, testPrepare] of Object.entries(testMethods)) {
         t.strictSame(content.bin, { echo: 'bin/echo' })
       })
 
+      t.test('bin handles hidden folders', async t => {
+        const { content } = await testPrepare(t, ({
+          'package.json': JSON.stringify({
+            name: 'bin-test',
+            bin: {
+              echo: '..\\..\\..\\.bin\\echo',
+            },
+          }),
+          bin: { echo: '#!/bin/sh\n\necho "hello world"' },
+        }))
+        t.strictSame(content.bin, { echo: '.bin/echo' })
+      })
+
       t.test('directories.bin with bin', async t => {
         const { content } = await testPrepare(t, ({
           'package.json': JSON.stringify({
@@ -175,6 +188,25 @@ for (const [name, testPrepare] of Object.entries(testMethods)) {
         t.strictSame(content.bin, { echo: 'bin/echo' })
       })
 
+      t.test('directories.bin with hidden bin dir', async t => {
+        const { content } = await testPrepare(t, ({
+          'package.json': JSON.stringify({
+            name: 'bin-test',
+            directories: {
+              bin: './.bin',
+            },
+            bin: {
+              echo: './.bin/echo',
+            },
+          }),
+          bin: {
+            echo: '#!/bin/sh\n\necho "hello world"',
+            echo2: '#!/bin/sh\n\necho "hello world2"',
+          },
+        }))
+        t.strictSame(content.bin, { echo: '.bin/echo' })
+      })
+
       t.end()
     })
 
@@ -187,6 +219,16 @@ for (const [name, testPrepare] of Object.entries(testMethods)) {
           man: { man1: { 'test.1': 'man test file' } },
         }))
         t.strictSame(content.man, ['man/man1/test.1'])
+      })
+
+      t.test('resolves hidden directory', async t => {
+        const { content } = await testPrepare(t, ({
+          'package.json': JSON.stringify({
+            directories: { man: './.man' },
+          }),
+          '.man': { man1: { 'test.1': 'man test file' } },
+        }))
+        t.strictSame(content.man, ['.man/man1/test.1'])
       })
 
       if (name === '@npmcli/package-json') {
