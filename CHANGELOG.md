@@ -1,5 +1,12 @@
 # Changelog
 
+## [5.2.1](https://github.com/npm/package-json/compare/v5.2.0...v5.2.1) (2024-09-17)
+### Bug Fixes
+* [`962b9e1`](https://github.com/npm/package-json/commit/962b9e10f4bea86431ff051b8c05c9c22e1053d9) [#119](https://github.com/npm/package-json/pull/119) hidden dir path clean up corrected (#119) (@milaninfy)
+### Chores
+* [`e26e236`](https://github.com/npm/package-json/commit/e26e2367ddbf5bacdddce476c75bf3611c549657) [#118](https://github.com/npm/package-json/pull/118) postinstall for dependabot template-oss PR (@hashtagchris)
+* [`8a7714b`](https://github.com/npm/package-json/commit/8a7714b9903eb13bc0ae937beec16f67e9d5bed2) [#118](https://github.com/npm/package-json/pull/118) bump @npmcli/template-oss from 4.23.1 to 4.23.3 (@dependabot[bot])
+
 ## [5.2.0](https://github.com/npm/package-json/compare/v5.1.1...v5.2.0) (2024-06-03)
 
 ### Features
