@@ -36,7 +36,7 @@
     "glob": "^10.2.2",
     "hosted-git-info": "^7.0.0",
     "json-parse-even-better-errors": "^3.0.0",
-    "normalize-package-data": "^6.0.0",
+    "normalize-package-data": "^7.0.0",
     "proc-log": "^4.0.0",
     "semver": "^7.5.3"
   },
