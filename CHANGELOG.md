@@ -1,5 +1,20 @@
 # Changelog
 
+## [6.0.0](https://github.com/npm/package-json/compare/v5.2.1...v6.0.0) (2024-09-26)
+### ⚠️ BREAKING CHANGES
+* `@npmcli/package-json` now supports node `^18.17.0 || >=20.5.0`
+### Bug Fixes
+* [`8196f27`](https://github.com/npm/package-json/commit/8196f270055b8160d9372f1053f9ae108a332506) [#126](https://github.com/npm/package-json/pull/126) align to npm 10 node engine range (@reggi)
+### Dependencies
+* [`5bdf533`](https://github.com/npm/package-json/commit/5bdf533d82015e317dc84de096088da010a59729) [#126](https://github.com/npm/package-json/pull/126) `proc-log@5.0.0`
+* [`136ba6e`](https://github.com/npm/package-json/commit/136ba6e0ea9107f4f7c70052f17a192a598888d4) [#126](https://github.com/npm/package-json/pull/126) `normalize-package-data@7.0.0`
+* [`12318c0`](https://github.com/npm/package-json/commit/12318c08424e5278c27c3257392d47c39321421d) [#126](https://github.com/npm/package-json/pull/126) `json-parse-even-better-errors@4.0.0`
+* [`324d7ba`](https://github.com/npm/package-json/commit/324d7bab6669a9bd247ef766be857026a33fae15) [#126](https://github.com/npm/package-json/pull/126) `hosted-git-info@8.0.0`
+### Chores
+* [`855676d`](https://github.com/npm/package-json/commit/855676dd83b966505d7c30045d35a875ec1a0ea6) [#117](https://github.com/npm/package-json/pull/117) bump @npmcli/eslint-config from 4.0.5 to 5.0.0 (#117) (@dependabot[bot])
+* [`c421ce9`](https://github.com/npm/package-json/commit/c421ce9524b37eab0d56b2a7283c2dfc0be0c59d) [#125](https://github.com/npm/package-json/pull/125) bump read-package-json-fast from 3.0.2 to 4.0.0 (#125) (@dependabot[bot])
+* [`1f182e6`](https://github.com/npm/package-json/commit/1f182e6d70a33a9e69acd73a042c0cb6cf04a5f2) [#126](https://github.com/npm/package-json/pull/126) run template-oss-apply (@reggi)
+
 ## [5.2.1](https://github.com/npm/package-json/compare/v5.2.0...v5.2.1) (2024-09-17)
 ### Bug Fixes
 * [`962b9e1`](https://github.com/npm/package-json/commit/962b9e10f4bea86431ff051b8c05c9c22e1053d9) [#119](https://github.com/npm/package-json/pull/119) hidden dir path clean up corrected (#119) (@milaninfy)
