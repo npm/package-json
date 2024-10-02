@@ -1,5 +1,9 @@
 # Changelog
 
+## [6.0.1](https://github.com/npm/package-json/compare/v6.0.0...v6.0.1) (2024-10-02)
+### Dependencies
+* [`25e2a76`](https://github.com/npm/package-json/commit/25e2a766e8af0a7ba45218ae8025616632ae5ee2) [#129](https://github.com/npm/package-json/pull/129) bump `@npmcli/git@6.0.0`
+
 ## [6.0.0](https://github.com/npm/package-json/compare/v5.2.1...v6.0.0) (2024-09-26)
 ### ⚠️ BREAKING CHANGES
 * `@npmcli/package-json` now supports node `^18.17.0 || >=20.5.0`
