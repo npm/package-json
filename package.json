@@ -2,6 +2,16 @@
   "name": "@npmcli/package-json",
   "version": "6.0.1",
   "description": "Programmatic API to update package.json",
+  "keywords": [
+    "npm",
+    "oss"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/npm/package-json.git"
+  },
+  "license": "ISC",
+  "author": "GitHub Inc.",
   "main": "lib/index.js",
   "files": [
     "bin/",
@@ -18,19 +28,6 @@
     "template-oss-apply": "template-oss-apply --force",
     "eslint": "eslint \"**/*.{js,cjs,ts,mjs,jsx,tsx}\""
   },
-  "keywords": [
-    "npm",
-    "oss"
-  ],
-  "author": "GitHub Inc.",
-  "license": "ISC",
-  "devDependencies": {
-    "@npmcli/eslint-config": "^5.0.0",
-    "@npmcli/template-oss": "4.23.3",
-    "read-package-json": "^7.0.0",
-    "read-package-json-fast": "^4.0.0",
-    "tap": "^16.0.1"
-  },
   "dependencies": {
     "@npmcli/git": "^6.0.0",
     "glob": "^10.2.2",
@@ -40,9 +37,12 @@
     "proc-log": "^5.0.0",
     "semver": "^7.5.3"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/npm/package-json.git"
+  "devDependencies": {
+    "@npmcli/eslint-config": "^5.0.0",
+    "@npmcli/template-oss": "4.23.3",
+    "read-package-json": "^7.0.0",
+    "read-package-json-fast": "^4.0.0",
+    "tap": "^16.0.1"
   },
   "engines": {
     "node": "^18.17.0 || >=20.5.0"

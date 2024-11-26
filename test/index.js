@@ -245,3 +245,85 @@ t.test('read package', async t => {
   const data = await readPackage(join(path, 'package.json'))
   t.matchSnapshot(data)
 })
+
+const getPackageFile = (file) =>
+  JSON.parse(
+    fs.readFileSync(join(__dirname, 'fixtures', file, 'package.json'), 'utf8')
+  )
+
+t.test('sorts on save', async t => {
+  const allFieldsPopulated = getPackageFile('all-fields-populated')
+
+  const path = t.testdir({
+    'package.json': JSON.stringify(allFieldsPopulated, null, 2),
+  })
+
+  const pkgJson = await PackageJson.load(path)
+
+  await pkgJson.save({ sort: true })
+
+  t.strictSame(
+    allFieldsPopulated,
+    getPackageFile('all-fields-populated')
+  )
+})
+
+t.test('not the same if name is at the bottom', async t => {
+  const { name, ...allFieldsPopulated } = getPackageFile('all-fields-populated')
+  const path = t.testdir({
+    'package.json': JSON.stringify({
+      ...allFieldsPopulated,
+      name,
+    }, null, 2),
+  })
+
+  const pkgJson = await PackageJson.load(path)
+
+  await pkgJson.save({ sort: true })
+
+  t.strictNotSame(
+    allFieldsPopulated,
+    JSON.parse(fs.readFileSync(resolve(path, 'package.json'), 'utf8'))
+  )
+})
+
+t.test('unrecognised props at bottom', async t => {
+  const { name, ...allFieldsPopulated } = getPackageFile('all-fields-populated')
+
+  const path = t.testdir({
+    'package.json': JSON.stringify({
+      meow: true,
+      ...allFieldsPopulated,
+      name,
+    }, null, 2),
+  })
+
+  const pkgJson = await PackageJson.load(path)
+
+  await pkgJson.save({ sort: true })
+
+  t.strictSame(
+    {
+      name,
+      ...allFieldsPopulated,
+      meow: true,
+    },
+    JSON.parse(fs.readFileSync(resolve(path, 'package.json'), 'utf8'))
+  )
+})
+
+t.test('empty props at bottom', async t => {
+  const path = t.testdir({
+    'package.json': JSON.stringify({
+    }, null, 2),
+  })
+
+  const pkgJson = await PackageJson.load(path)
+
+  await pkgJson.save({ sort: true })
+
+  t.same(
+    {},
+    JSON.parse(fs.readFileSync(resolve(path, 'package.json'), 'utf8'))
+  )
+})
