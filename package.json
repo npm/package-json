@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "@npmcli/eslint-config": "^5.0.0",
-    "@npmcli/template-oss": "4.23.3",
+    "@npmcli/template-oss": "4.23.5",
     "read-package-json": "^7.0.0",
     "read-package-json-fast": "^4.0.0",
     "tap": "^16.0.1"
