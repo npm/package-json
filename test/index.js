@@ -3,6 +3,11 @@ const { join, resolve } = require('node:path')
 const t = require('tap')
 const PackageJson = require('../lib/index.js')
 
+const getPackageFile = (file) =>
+  JSON.parse(
+    fs.readFileSync(join(__dirname, 'fixtures', file, 'package.json'), 'utf8')
+  )
+
 const redactCwd = (path) => {
   const normalizePath = p => p
     .replace(/\\+/g, '/')
@@ -75,7 +80,7 @@ t.test('load', t => {
     )
   })
   t.test('update long package.json', async t => {
-    const fixture = resolve(__dirname, 'fixtures', 'package.json')
+    const fixture = resolve(__dirname, 'fixtures', 'legacy', 'package.json')
     const path = t.testdir({})
     fs.copyFileSync(fixture, resolve(path, 'package.json'))
     const pkgJson = await PackageJson.load(path)
@@ -245,11 +250,6 @@ t.test('read package', async t => {
   const data = await readPackage(join(path, 'package.json'))
   t.matchSnapshot(data)
 })
-
-const getPackageFile = (file) =>
-  JSON.parse(
-    fs.readFileSync(join(__dirname, 'fixtures', file, 'package.json'), 'utf8')
-  )
 
 t.test('sorts on save', async t => {
   const allFieldsPopulated = getPackageFile('all-fields-populated')
