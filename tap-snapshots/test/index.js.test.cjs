@@ -39,6 +39,125 @@ exports[`test/index.js TAP load read, update content and write > should properly
 
 `
 
+exports[`test/index.js TAP load sorts on save > should properly save content to a package.json 1`] = `
+{
+  "name": "foo",
+  "version": "1.0.0",
+  "description": "A sample package",
+  "keywords": [
+    "sample",
+    "package"
+  ],
+  "homepage": "https://example.com",
+  "bugs": {
+    "url": "https://example.com/bugs",
+    "email": "bugs@example.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://example.com/repo.git"
+  },
+  "funding": "https://example.com/funding",
+  "license": "MIT",
+  "author": "Author Name <author@example.com>",
+  "maintainers": [
+    "Maintainer One <maintainer1@example.com>",
+    "Maintainer Two <maintainer2@example.com>"
+  ],
+  "contributors": [
+    "Contributor One <contributor1@example.com>",
+    "Contributor Two <contributor2@example.com>"
+  ],
+  "type": "module",
+  "imports": {
+    "#dep": "./src/dep.js"
+  },
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "main": "index.js",
+  "browser": "browser.js",
+  "types": "index.d.ts",
+  "bin": {
+    "my-cli": "./bin/cli.js"
+  },
+  "man": [
+    "./man/doc.1"
+  ],
+  "directories": {
+    "lib": "lib",
+    "bin": "bin",
+    "man": "man"
+  },
+  "files": [
+    "lib/**/*.js",
+    "bin/**/*.js"
+  ],
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "start": "node index.js",
+    "test": "tap test/*.js"
+  },
+  "config": {
+    "port": "8080"
+  },
+  "dependencies": {
+    "some-dependency": "^1.0.0"
+  },
+  "devDependencies": {
+    "some-dev-dependency": "^1.0.0"
+  },
+  "peerDependencies": {
+    "some-peer-dependency": "^1.0.0"
+  },
+  "peerDependenciesMeta": {
+    "some-peer-dependency": {
+      "optional": true
+    }
+  },
+  "optionalDependencies": {
+    "some-optional-dependency": "^1.0.0"
+  },
+  "bundledDependencies": [
+    "some-bundled-dependency"
+  ],
+  "bundleDependencies": [
+    "some-bundled-dependency"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "os": [
+    "darwin",
+    "linux"
+  ],
+  "cpu": [
+    "x64",
+    "arm64"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.example.com"
+  },
+  "devEngines": {
+    "node": ">=14.0.0"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  ],
+  "overrides": {
+    "some-dependency": {
+      "some-sub-dependency": "1.0.0"
+    }
+  }
+}
+
+`
+
 exports[`test/index.js TAP load update long package.json > should only update the defined property 1`] = `
 {
   "version": "7.18.1",
