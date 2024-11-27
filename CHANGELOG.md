@@ -1,5 +1,11 @@
 # Changelog
 
+## [6.1.0](https://github.com/npm/package-json/compare/v6.0.1...v6.1.0) (2024-11-27)
+### Features
+* [`4c22738`](https://github.com/npm/package-json/commit/4c22738d919e29a32ae20472f48837b65181c309) [#133](https://github.com/npm/package-json/pull/133) adds ability to sort package.json on save (#133) (@reggi, @wraithgar)
+### Chores
+* [`6fef3a2`](https://github.com/npm/package-json/commit/6fef3a215378695bcf495b119c4fd5cccc576f44) [#135](https://github.com/npm/package-json/pull/135) bump @npmcli/template-oss from 4.23.3 to 4.23.5 (#135) (@dependabot[bot], @npm-cli-bot)
+
 ## [6.0.1](https://github.com/npm/package-json/compare/v6.0.0...v6.0.1) (2024-10-02)
 ### Dependencies
 * [`25e2a76`](https://github.com/npm/package-json/commit/25e2a766e8af0a7ba45218ae8025616632ae5ee2) [#129](https://github.com/npm/package-json/pull/129) bump `@npmcli/git@6.0.0`
