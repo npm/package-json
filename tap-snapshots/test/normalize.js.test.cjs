@@ -122,6 +122,19 @@ Array [
 ]
 `
 
+exports[`test/normalize.js TAP @npmcli/package-json - with changes main normalize main path - no changes > must match snapshot 1`] = `
+Array [
+  "Deleted incorrect \\"bundledDependencies\\"",
+]
+`
+
+exports[`test/normalize.js TAP @npmcli/package-json - with changes main normalize main to correct path > must match snapshot 1`] = `
+Array [
+  "Deleted incorrect \\"bundledDependencies\\"",
+  "\\"main\\" was normalized to \\"index.js\\"",
+]
+`
+
 exports[`test/normalize.js TAP @npmcli/package-json - with changes normalize bin > must match snapshot 1`] = `
 Array [
   "Deleted incorrect \\"bundledDependencies\\"",
