@@ -1,7 +1,7 @@
 const fs = require('node:fs')
 const { join, resolve } = require('node:path')
 const t = require('tap')
-const PackageJson = require('../lib/index.js')
+const PackageJson = require('../')
 
 const getPackageFile = (file) =>
   JSON.parse(
@@ -80,7 +80,7 @@ t.test('load', t => {
     )
   })
   t.test('update long package.json', async t => {
-    const fixture = resolve(__dirname, 'fixtures', 'legacy', 'package.json')
+    const fixture = resolve(__dirname, 'fixtures', 'normalize-data', 'package.json')
     const path = t.testdir({})
     fs.copyFileSync(fixture, resolve(path, 'package.json'))
     const pkgJson = await PackageJson.load(path)
