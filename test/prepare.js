@@ -617,7 +617,6 @@ for (const [name, testPrepare] of Object.entries(testMethods)) {
         t.has(content, { type: undefined })
       })
 
-      // eslint-disable-next-line max-len
       // https://nodejs.org/api/esm.html#esm_writing_dual_packages_while_avoiding_or_minimizing_hazards
 
       t.skip('handles esm modules', async t => {
