@@ -327,3 +327,31 @@ t.test('empty props at bottom', async t => {
     JSON.parse(fs.readFileSync(resolve(path, 'package.json'), 'utf8'))
   )
 })
+
+t.test('reversion can still save', async t => {
+  const path = t.testdir({
+    'package.json': JSON.stringify({
+      name: '@npmcli/test',
+      version: '1.0.0',
+    }),
+  })
+  const pkgJson = await PackageJson.load(path)
+  pkgJson.update({ version: '2.0.0' })
+  await pkgJson.save()
+  t.strictSame(
+    {
+      name: '@npmcli/test',
+      version: '2.0.0',
+    },
+    JSON.parse(fs.readFileSync(resolve(path, 'package.json'), 'utf8'))
+  )
+  pkgJson.update({ version: '1.0.0' })
+  await pkgJson.save()
+  t.strictSame(
+    {
+      name: '@npmcli/test',
+      version: '1.0.0',
+    },
+    JSON.parse(fs.readFileSync(resolve(path, 'package.json'), 'utf8'))
+  )
+})
