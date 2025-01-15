@@ -338,6 +338,29 @@ for (const [name, testNormalize] of Object.entries(testMethods)) {
       t.has(content, { bin: undefined })
     })
 
+    t.test('main', t => {
+      if (isLegacy) {
+        return t.skip('rpj does not have configurable steps for main')
+      }
+      t.test('normalize main to correct path', async t => {
+        const { content: { main } } = await testNormalize(t, ({
+          'package.json': JSON.stringify({ main: './index.js' }),
+        }))
+        t.strictSame(main, 'index.js')
+      })
+      t.test('normalize main path - no changes', async t => {
+        const { content: { main } } = await testNormalize(t, ({
+          'package.json': JSON.stringify({ main: '.pkg/index.js' }),
+        }))
+        t.strictSame(main, '.pkg/index.js')
+      })
+      t.test('normalize main path - not a string', async t => {
+        t.rejects(testNormalize(t, ({
+          'package.json': JSON.stringify({ main: ['.pkg/index.js'] }),
+        })), { name: 'TypeError' })
+      })
+      t.end()
+    })
     t.test('skipping steps', async t => {
       if (isLegacy) {
         return t.skip('rpj does not have configurable steps')
