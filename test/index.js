@@ -22,7 +22,7 @@ t.test('load', t => {
   t.test('read a valid package.json', async t => {
     const path = t.testdir({
       'package.json': JSON.stringify({
-        name: 'foo',
+        name: '@npmcli/test',
         version: '1.0.0',
       }),
     })
@@ -30,14 +30,14 @@ t.test('load', t => {
     const pj = await PackageJson.load(path)
     t.same(
       pj.content,
-      { name: 'foo', version: '1.0.0' },
+      { name: '@npmcli/test', version: '1.0.0' },
       'should return content for a valid package.json'
     )
   })
   t.test('read, update content and write', async t => {
     const path = t.testdir({
       'package.json': JSON.stringify({
-        name: 'foo',
+        name: '@npmcli/test',
         version: '1.0.0',
       }, null, 8),
     })
@@ -65,7 +65,7 @@ t.test('load', t => {
     )
   })
   t.test('do not overwite unchanged file on EOF line added/removed', async t => {
-    const originalPackageJsonContent = '{\n  "name": "foo"\n}'
+    const originalPackageJsonContent = '{\n  "name": "@npmcli/test"\n}'
     const path = t.testdir({
       'package.json': originalPackageJsonContent,
     })
@@ -132,7 +132,7 @@ t.test('load', t => {
   t.test('custom formatting', async t => {
     const path = t.testdir({
       'package.json': JSON.stringify({
-        name: 'foo',
+        name: '@npmcli/test',
         version: '1.0.0',
       }, null, 0),
     })
@@ -243,7 +243,7 @@ t.test('read package', async t => {
   const { readPackage } = require('../lib/read-package')
   const path = t.testdir({
     'package.json': JSON.stringify({
-      name: 'foo',
+      name: '@npmcli/test',
       version: '1.0.0',
     }),
   })
