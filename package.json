@@ -38,7 +38,7 @@
     "validate-npm-package-license": "^3.0.4"
   },
   "devDependencies": {
-    "@npmcli/eslint-config": "^5.0.0",
+    "@npmcli/eslint-config": "^5.1.0",
     "@npmcli/template-oss": "4.23.6",
     "read-package-json": "^7.0.0",
     "read-package-json-fast": "^4.0.0",
