@@ -1,7 +1,7 @@
 const fs = require('node:fs')
 const { join, resolve } = require('node:path')
 const t = require('tap')
-const PackageJson = require('../lib/index.js')
+const PackageJson = require('../')
 
 const getPackageFile = (file) =>
   JSON.parse(
