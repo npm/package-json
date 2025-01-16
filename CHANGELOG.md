@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.1.1](https://github.com/npm/package-json/compare/v6.1.0...v6.1.1) (2025-01-15)
+### Bug Fixes
+* [`2d320bc`](https://github.com/npm/package-json/commit/2d320bc4e4b8609037b19d31420464dd3c67b9d5) [#140](https://github.com/npm/package-json/pull/140) save when reverting content (@wraithgar)
+### Chores
+* [`1464adc`](https://github.com/npm/package-json/commit/1464adc74d7a8702b11b179f815d48eab10ec1cf) [#140](https://github.com/npm/package-json/pull/140) scope test fixture package names (@wraithgar)
+* [`d722a1f`](https://github.com/npm/package-json/commit/d722a1f3ea30fffbc0ddc1fe01e02599f240f381) [#137](https://github.com/npm/package-json/pull/137) bump @npmcli/template-oss from 4.23.5 to 4.23.6 (#137) (@dependabot[bot], @npm-cli-bot)
+
 ## [6.1.0](https://github.com/npm/package-json/compare/v6.0.1...v6.1.0) (2024-11-27)
 ### Features
 * [`4c22738`](https://github.com/npm/package-json/commit/4c22738d919e29a32ae20472f48837b65181c309) [#133](https://github.com/npm/package-json/pull/133) adds ability to sort package.json on save (#133) (@reggi, @wraithgar)
