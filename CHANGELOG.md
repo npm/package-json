@@ -1,5 +1,18 @@
 # Changelog
 
+## [6.1.1](https://github.com/npm/package-json/compare/v6.1.0...v6.1.1) (2025-01-21)
+### Bug Fixes
+* [`526473b`](https://github.com/npm/package-json/commit/526473bf1f2fcb8b1b3c3af68f890df203ebe33d) [#139](https://github.com/npm/package-json/pull/139) remove max-len linting bypasses (@wraithgar)
+* [`2a7bbe5`](https://github.com/npm/package-json/commit/2a7bbe5bc797f1bdba7c183b417e1a2bbfc33973) [#139](https://github.com/npm/package-json/pull/139) inline normalize-package-data logic (@wraithgar)
+* [`2d320bc`](https://github.com/npm/package-json/commit/2d320bc4e4b8609037b19d31420464dd3c67b9d5) [#140](https://github.com/npm/package-json/pull/140) save when reverting content (@wraithgar)
+### Dependencies
+* [`6ea3a9d`](https://github.com/npm/package-json/commit/6ea3a9d336b42b613474b04dfe4eb44b65d95612) [#139](https://github.com/npm/package-json/pull/139) add `validate-npm-package-license@3.0.4`
+* [`35152b6`](https://github.com/npm/package-json/commit/35152b6a647f0c6ff1caa4342ad5cec43b7881cd) [#139](https://github.com/npm/package-json/pull/139) remove normalize-package-data
+### Chores
+* [`0930f4e`](https://github.com/npm/package-json/commit/0930f4e5c8b02e6d8935f37ca7f46b492c3d1ef7) [#139](https://github.com/npm/package-json/pull/139) `@npmcli/eslint-config@5.1.0` (@wraithgar)
+* [`1464adc`](https://github.com/npm/package-json/commit/1464adc74d7a8702b11b179f815d48eab10ec1cf) [#140](https://github.com/npm/package-json/pull/140) scope test fixture package names (@wraithgar)
+* [`d722a1f`](https://github.com/npm/package-json/commit/d722a1f3ea30fffbc0ddc1fe01e02599f240f381) [#137](https://github.com/npm/package-json/pull/137) bump @npmcli/template-oss from 4.23.5 to 4.23.6 (#137) (@dependabot[bot], @npm-cli-bot)
+
 ## [6.1.0](https://github.com/npm/package-json/compare/v6.0.1...v6.1.0) (2024-11-27)
 ### Features
 * [`4c22738`](https://github.com/npm/package-json/commit/4c22738d919e29a32ae20472f48837b65181c309) [#133](https://github.com/npm/package-json/pull/133) adds ability to sort package.json on save (#133) (@reggi, @wraithgar)
