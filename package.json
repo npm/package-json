@@ -30,11 +30,11 @@
   },
   "dependencies": {
     "@npmcli/git": "^6.0.0",
-    "glob": "^10.2.2",
     "hosted-git-info": "^8.0.0",
     "json-parse-even-better-errors": "^4.0.0",
     "proc-log": "^5.0.0",
     "semver": "^7.5.3",
+    "tinyglobby": "^0.2.11",
     "validate-npm-package-license": "^3.0.4"
   },
   "devDependencies": {
