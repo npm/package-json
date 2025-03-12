@@ -29,7 +29,7 @@ exports[`test/fix.js TAP with changes binRefs scoped name > must match snapshot 
 Array [
   "\\"bin\\" was converted to an object",
   "\\"bin[@npmcli/test-package]\\" was renamed to \\"bin[test-package]\\"",
-  "\\"bin[test-package]\\" script name was cleaned",
+  "\\"bin[test-package]\\" script name @npmcli/test-package was invalid and removed",
 ]
 `
 

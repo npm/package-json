@@ -217,7 +217,7 @@ for (const [name, testFix] of Object.entries(testMethods)) {
     t.test('scriptpath', async t => {
       t.test('non-object scripts', async t => {
         const testdir = {
-          'package.json': pkg({ scripts: '@npmcil/test-package' }),
+          'package.json': pkg({ scripts: '@npmcli/test-package' }),
         }
         const { content } = await testFix(t, testdir)
         t.notHas(content, 'scripts')
@@ -263,17 +263,17 @@ for (const [name, testFix] of Object.entries(testMethods)) {
     t.test('binRefs', async t => {
       t.test('scoped name', async t => {
         const testdir = {
-          'package.json': pkg({ bin: '@npmcil/test-package' }),
+          'package.json': pkg({ bin: '@npmcli/test-package' }),
         }
         const { content } = await testFix(t, testdir)
-        t.strictSame(content.bin, { 'test-package': '@npmcil/test-package' })
+        t.strictSame(content.bin, { 'test-package': '@npmcli/test-package' })
       })
       t.test('array', async t => {
         const testdir = {
-          'package.json': pkg({ bin: ['@npmcil/test-package'] }),
+          'package.json': pkg({ bin: ['@npmcli/test-package'] }),
         }
         const { content } = await testFix(t, testdir)
-        t.strictSame(content.bin, { 'test-package': '@npmcil/test-package' })
+        t.strictSame(content.bin, { 'test-package': '@npmcli/test-package' })
       })
       t.test('no bin target', async t => {
         const testdir = {
