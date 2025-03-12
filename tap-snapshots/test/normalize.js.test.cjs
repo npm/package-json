@@ -103,6 +103,10 @@ exports[`test/normalize.js TAP @npmcli/package-json - with changes dedupe option
 Array []
 `
 
+exports[`test/normalize.js TAP @npmcli/package-json - with changes directories.bin > must match snapshot 1`] = `
+Array []
+`
+
 exports[`test/normalize.js TAP @npmcli/package-json - with changes normalize bin > must match snapshot 1`] = `
 Array []
 `

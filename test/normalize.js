@@ -167,6 +167,19 @@ for (const [name, testNormalize] of Object.entries(testMethods)) {
       })
     })
 
+    t.test('directories.bin', async t => {
+      const { content } = await testNormalize(t, ({
+        'package.json': JSON.stringify({
+          name: 'bin-test',
+          directories: {
+            bin: './bin',
+          },
+        }),
+        bin: { echo: '#!/bin/sh\n\necho "hello world"' },
+      }))
+      t.strictSame(content.bin, { echo: 'bin/echo' })
+    })
+
     t.test('dedupe optional deps out of regular deps', async t => {
       t.test('choose optional deps in conflict, removing empty dependencies', async t => {
         const { content } = await testNormalize(t, ({
