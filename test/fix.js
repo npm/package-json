@@ -105,19 +105,58 @@ for (const [name, testFix] of Object.entries(testMethods)) {
           { message: /Invalid name/ }
         )
       })
-      t.test('scoped whitespace', async t => {
+      t.test('scoped package name with whitespace', async t => {
         const testdir = {
           'package.json': pkg({ name: '@npmcli/test-package ' }),
         }
-        const { content } = await testFix(t, testdir)
-        t.strictSame(content.name, '@npmcli/test-package')
+
+        // When using fixNameField, whitespace should be trimmed
+        const fixed = await testFix(t, testdir, { steps: ['fixNameField'] })
+        t.strictSame(fixed.content.name, '@npmcli/test-package', 'whitespace should be trimmed')
       })
-      t.test('unscoped whitespace', async t => {
+      t.test('unscoped package name with whitespace', async t => {
         const testdir = {
-          'package.json': pkg({ name: '@npmcli/test-package ' }),
+          'package.json': pkg({ name: 'npmcli-test-package ' }),
         }
-        const { content } = await testFix(t, testdir)
-        t.strictSame(content.name, '@npmcli/test-package')
+
+        // When using fixNameField, whitespace should be trimmed
+        const fixed = await testFix(t, testdir, { steps: ['fixNameField'] })
+        t.strictSame(fixed.content.name, 'npmcli-test-package', 'whitespace should be trimmed')
+      })
+    })
+    t.test('fixName step', async t => {
+      t.test('warning for builtin module name', async t => {
+        const builtinModules = require('node:module').builtinModules
+        const builtinName = builtinModules[0] // Use the first builtin module name
+
+        const testdir = {
+          'package.json': pkg({ name: builtinName }),
+        }
+
+        // Should not throw error since this is just a warning
+        const { content } = await testFix(t, testdir, { steps: ['fixName'], strict: true, allowLegacyCase: true })
+        t.strictSame(content.name, builtinName, 'should allow but warn about builtin module name')
+      })
+
+      t.test('should reject invalid package name', async t => {
+        const testdir = {
+          'package.json': pkg({ name: '.invalid-name' }),
+        }
+
+        await t.rejects(
+          testFix(t, testdir, { steps: ['fixName'], strict: true, allowLegacyCase: true }),
+          { message: /Invalid name/ }
+        )
+      })
+
+      t.test('allows uppercase in package name', async t => {
+        const testdir = {
+          'package.json': pkg({ name: '@NPMCLI/Test-Package' }),
+        }
+
+        // With fixName, uppercase is allowed
+        const { content } = await testFix(t, testdir, { steps: ['fixName'], strict: true, allowLegacyCase: true })
+        t.strictSame(content.name, '@NPMCLI/Test-Package', 'should allow uppercase in package name')
       })
     })
     t.test('fixVersionField', async t => {
