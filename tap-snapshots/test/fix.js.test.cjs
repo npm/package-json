@@ -69,13 +69,21 @@ Array [
 ]
 `
 
-exports[`test/fix.js TAP with changes fixNameField scoped whitespace > must match snapshot 1`] = `
+exports[`test/fix.js TAP with changes fixName step allows uppercase in package name > must match snapshot 1`] = `
+Array []
+`
+
+exports[`test/fix.js TAP with changes fixName step warning for builtin module name > must match snapshot 1`] = `
+Array []
+`
+
+exports[`test/fix.js TAP with changes fixNameField scoped package name with whitespace > must match snapshot 1`] = `
 Array [
   "Whitespace was trimmed from \\"name\\"",
 ]
 `
 
-exports[`test/fix.js TAP with changes fixNameField unscoped whitespace > must match snapshot 1`] = `
+exports[`test/fix.js TAP with changes fixNameField unscoped package name with whitespace > must match snapshot 1`] = `
 Array [
   "Whitespace was trimmed from \\"name\\"",
 ]
