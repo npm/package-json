@@ -1,5 +1,9 @@
 # Changelog
 
+## [6.2.0](https://github.com/npm/package-json/compare/v6.1.1...v6.2.0) (2025-05-21)
+### Features
+* [`228539f`](https://github.com/npm/package-json/commit/228539fe73402e28d1f5b875f34cd5aeb0474d2e) [#145](https://github.com/npm/package-json/pull/145) adds fixName step for publishing (#145) (@owlstronaut)
+
 ## [6.1.1](https://github.com/npm/package-json/compare/v6.1.0...v6.1.1) (2025-01-21)
 ### Bug Fixes
 * [`526473b`](https://github.com/npm/package-json/commit/526473bf1f2fcb8b1b3c3af68f890df203ebe33d) [#139](https://github.com/npm/package-json/pull/139) remove max-len linting bypasses (@wraithgar)
