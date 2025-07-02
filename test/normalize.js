@@ -1,7 +1,5 @@
 const t = require('tap')
-const { join } = require('node:path')
 const pkg = require('../')
-const rpj = require('read-package-json-fast')
 
 const testMethods = {
   // eslint-disable-next-line max-len
@@ -17,15 +15,9 @@ const testMethods = {
     const p = t.testdir(testdir)
     return pkg.normalize(dir(p), opts)
   },
-  'read-package-json-fast': (t, testdir = {}, { dir = (v) => v } = {}) => {
-    const p = t.testdir(testdir)
-    return rpj(join(dir(p), 'package.json')).then(r => ({ content: r }))
-  },
 }
 
 for (const [name, testNormalize] of Object.entries(testMethods)) {
-  const isLegacy = name === 'read-package-json-fast'
-
   t.test(name, async t => {
     t.test('errors for bad/missing data', async t => {
       t.test('raises an error for missing file', t =>
@@ -352,9 +344,6 @@ for (const [name, testNormalize] of Object.entries(testMethods)) {
     })
 
     t.test('skipping steps', async t => {
-      if (isLegacy) {
-        return t.skip('rpj does not have configurable steps')
-      }
       const packageJson = {
         _lodash: true,
         dependencies: { a: '' },

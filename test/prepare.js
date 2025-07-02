@@ -16,25 +16,9 @@ const testMethods = {
     res.logs = logs
     return res
   },
-  'read-package-json': (t, testdir, { dir = (v) => v } = {}) => {
-    const p = t.testdir(testdir)
-    const rpj = t.mock('read-package-json') // reset rpj caches
-    const logs = []
-    const logger = (...a) => logs.push(a.slice(1))
-    return new Promise((res, rej) => {
-      rpj(join(dir(p), 'package.json'), logger, (err, content) => {
-        if (err) {
-          rej(err)
-        } else {
-          res({ content, logs })
-        }
-      })
-    })
-  },
 }
 
 for (const [name, testPrepare] of Object.entries(testMethods)) {
-  const isLegacy = name === 'read-package-json'
   t.test(name, async t => {
     t.test('errors for bad/missing data', async t => {
       t.test('invalid version', t =>
@@ -562,8 +546,7 @@ for (const [name, testPrepare] of Object.entries(testMethods)) {
             testgitref: 'filegitref',
           },
         }), { dir: (p) => join(p, 'sub'), root: true })
-        // rpj has no way prevent walking up all directories
-        t.strictSame(content.gitHead, isLegacy ? 'filegitref' : undefined)
+        t.strictSame(content.gitHead, undefined)
       })
       t.end()
     })
@@ -653,9 +636,6 @@ for (const [name, testPrepare] of Object.entries(testMethods)) {
     })
 
     t.test('skipping steps', async t => {
-      if (isLegacy) {
-        return t.skip('rpj does not have configurable steps')
-      }
       const packageJson = {
         scripts: { test: './node_modules/.bin/test' },
         main: './custom-path.js',
@@ -732,13 +712,9 @@ for (const [name, testPrepare] of Object.entries(testMethods)) {
           readme: 'ERROR: No README data found!',
           gitHead: 'testgitref',
         })
-        if (isLegacy) {
-          t.skip('rpj does not save files')
-        } else {
-          await t.rejects(parsed.save(), {
-            message: /No package.json/,
-          })
-        }
+        await t.rejects(parsed.save(), {
+          message: /No package.json/,
+        })
       })
       t.end()
     })
