@@ -233,10 +233,20 @@ pkgJson.content
 
 ---
 
-### `async PackageJson.save()`
+### `async PackageJson.save([options])`
 
-Saves the current `content` to the same location used when calling
-`load()`.
+
+Saves the current `content` to the same location used when calling `load()`.
+
+- `options`: `Object` (optional)
+  - `sort`: `Boolean` (optional) — If true, sorts the keys in the resulting `package.json` file for consistency and readability.
+
+> [!NOTE]
+> The sort order for `package.json` is based on the conventions from
+> [sort-package-json](https://github.com/keithamus/sort-package-json/blob/main/defaultRules.md),
+> cross-checked with the official npm types and documentation:
+> - https://github.com/npm/types/blob/main/types/index.d.ts#L104
+> - https://docs.npmjs.com/cli/configuring-npm/package-json
 
 ## LICENSE
 
