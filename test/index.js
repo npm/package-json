@@ -355,3 +355,18 @@ t.test('reversion can still save', async t => {
     JSON.parse(fs.readFileSync(resolve(path, 'package.json'), 'utf8'))
   )
 })
+
+t.test('fromContent', async t => {
+  t.test('object', async t => {
+    const pkgJson = new PackageJson()
+    const data = { name: '@npmcli/test', version: '1.0.0-fromContent' }
+    pkgJson.fromContent(data)
+    t.deepEqual(pkgJson.content, data)
+  })
+  t.test('string', async t => {
+    const pkgJson = new PackageJson()
+    await t.throws(() => {
+      pkgJson.fromContent('a string')
+    }, 'Content data must be a string')
+  })
+})
