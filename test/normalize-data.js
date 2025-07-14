@@ -9,17 +9,17 @@ const base = {
   license: 'UNLICENSED',
 }
 
-function normalizeData (t, data) {
+async function normalizeData (t, data) {
   const changes = []
   const p = new PackageJson().fromContent(data)
-  p.normalize({ steps: 'normalizeData', changes })
+  await p.normalize({ steps: 'normalizeData', changes })
   t.matchSnapshot(changes)
   return p
 }
 
 t.test('fixDescriptionField', async t => {
   t.test('non string', async t => {
-    const { content } = normalizeData(t, {
+    const { content } = await normalizeData(t, {
       ...base,
       description: true,
     })
@@ -27,7 +27,7 @@ t.test('fixDescriptionField', async t => {
   })
 
   t.test('no description and no readme', async t => {
-    const { content } = normalizeData(t, {
+    const { content } = await normalizeData(t, {
       ...base,
       description: undefined,
       readme: undefined,
@@ -36,7 +36,7 @@ t.test('fixDescriptionField', async t => {
   })
 
   t.test('summarizes readme', async t => {
-    const { content } = normalizeData(t, {
+    const { content } = await normalizeData(t, {
       ...base,
       description: undefined,
       readme: '# test package\ntest fixture readme\nsecond line\n\nthird line',
@@ -46,7 +46,7 @@ t.test('fixDescriptionField', async t => {
 })
 
 t.test('fixModulesField', async t => {
-  const { content } = normalizeData(t, {
+  const { content } = await normalizeData(t, {
     ...base,
     modules: true,
   })
@@ -55,7 +55,7 @@ t.test('fixModulesField', async t => {
 
 t.test('fixFilesField', async t => {
   t.test('non array', async t => {
-    const { content } = normalizeData(t, {
+    const { content } = await normalizeData(t, {
       ...base,
       files: './index.js',
     })
@@ -63,7 +63,7 @@ t.test('fixFilesField', async t => {
   })
 
   t.test('invalid entry', async t => {
-    const { content } = normalizeData(t, {
+    const { content } = await normalizeData(t, {
       ...base,
       files: [null, true, './index.js'],
     })
@@ -73,7 +73,7 @@ t.test('fixFilesField', async t => {
 
 t.test('fixManfield', async t => {
   t.test('string', async t => {
-    const { content } = normalizeData(t, {
+    const { content } = await normalizeData(t, {
       ...base,
       man: './man',
     })
@@ -83,7 +83,7 @@ t.test('fixManfield', async t => {
 
 t.test('fixBugsField', async t => {
   t.test('no bugs with repository with url', async t => {
-    const { content } = normalizeData(t, {
+    const { content } = await normalizeData(t, {
       ...base,
       repository: {
         url: 'git+https://github.com/npm/package-json.git',
@@ -93,7 +93,7 @@ t.test('fixBugsField', async t => {
   })
 
   t.test('non string', async t => {
-    const { content } = normalizeData(t, {
+    const { content } = await normalizeData(t, {
       ...base,
       bugs: {},
     })
@@ -101,7 +101,7 @@ t.test('fixBugsField', async t => {
   })
 
   t.test('string email', async t => {
-    const { content } = normalizeData(t, {
+    const { content } = await normalizeData(t, {
       ...base,
       bugs: 'support@npmjs.org',
     })
@@ -109,7 +109,7 @@ t.test('fixBugsField', async t => {
   })
 
   t.test('string url', async t => {
-    const { content } = normalizeData(t, {
+    const { content } = await normalizeData(t, {
       ...base,
       bugs: 'https://npmjs.org',
     })
@@ -117,7 +117,7 @@ t.test('fixBugsField', async t => {
   })
 
   t.test('string other', async t => {
-    const { content } = normalizeData(t, {
+    const { content } = await normalizeData(t, {
       ...base,
       bugs: 'something else',
     })
@@ -125,7 +125,7 @@ t.test('fixBugsField', async t => {
   })
 
   t.test('bugsTypos', async t => {
-    const { content } = normalizeData(t, {
+    const { content } = await normalizeData(t, {
       ...base,
       bugs: { web: 'https://npmjs.org' },
     })
@@ -133,7 +133,7 @@ t.test('fixBugsField', async t => {
   })
 
   t.test('object valid url', async t => {
-    const { content } = normalizeData(t, {
+    const { content } = await normalizeData(t, {
       ...base,
       bugs: { url: 'https://npmjs.org' },
     })
@@ -141,7 +141,7 @@ t.test('fixBugsField', async t => {
   })
 
   t.test('object invalid url string', async t => {
-    const { content } = normalizeData(t, {
+    const { content } = await normalizeData(t, {
       ...base,
       bugs: { url: 'homepage' },
     })
@@ -149,7 +149,7 @@ t.test('fixBugsField', async t => {
   })
 
   t.test('object invalid url other', async t => {
-    const { content } = normalizeData(t, {
+    const { content } = await normalizeData(t, {
       ...base,
       bugs: { url: {} },
     })
@@ -157,7 +157,7 @@ t.test('fixBugsField', async t => {
   })
 
   t.test('object email', async t => {
-    const { content } = normalizeData(t, {
+    const { content } = await normalizeData(t, {
       ...base,
       bugs: { email: 'support@npmjs.org' },
     })
@@ -165,7 +165,7 @@ t.test('fixBugsField', async t => {
   })
 
   t.test('object non email', async t => {
-    const { content } = normalizeData(t, {
+    const { content } = await normalizeData(t, {
       ...base,
       bugs: { email: 'support' },
     })
@@ -173,7 +173,7 @@ t.test('fixBugsField', async t => {
   })
 
   t.test('object non-string email', async t => {
-    const { content } = normalizeData(t, {
+    const { content } = await normalizeData(t, {
       ...base,
       bugs: { email: {} },
     })
@@ -181,7 +181,7 @@ t.test('fixBugsField', async t => {
   })
 
   t.test('repository w/ no bugs template', async t => {
-    const { content } = normalizeData(t, {
+    const { content } = await normalizeData(t, {
       ...base,
       repository: { url: 'https://git.sr.ht/example/repo.git' },
     })
@@ -191,7 +191,7 @@ t.test('fixBugsField', async t => {
 
 t.test('fixKeywordsField', async t => {
   t.test('splits string', async t => {
-    const { content } = normalizeData(t, {
+    const { content } = await normalizeData(t, {
       ...base,
       keywords: 'a, b, c',
     })
@@ -199,7 +199,7 @@ t.test('fixKeywordsField', async t => {
   })
 
   t.test('non array', async t => {
-    const { content } = normalizeData(t, {
+    const { content } = await normalizeData(t, {
       ...base,
       keywords: {},
     })
@@ -207,7 +207,7 @@ t.test('fixKeywordsField', async t => {
   })
 
   t.test('filters non strings', async t => {
-    const { content } = normalizeData(t, {
+    const { content } = await normalizeData(t, {
       ...base,
       keywords: ['a', 100, 'c'],
     })
@@ -217,7 +217,7 @@ t.test('fixKeywordsField', async t => {
 
 t.test('fixBundleDependenciesField', async t => {
   t.test('bundledDependencies', async t => {
-    const { content } = normalizeData(t, {
+    const { content } = await normalizeData(t, {
       ...base,
       dependencies: { '@npm/test': '*' },
       bundledDependencies: ['@npm/test'],
@@ -227,7 +227,7 @@ t.test('fixBundleDependenciesField', async t => {
   })
 
   t.test('non array', async t => {
-    const { content } = normalizeData(t, {
+    const { content } = await normalizeData(t, {
       ...base,
       bundleDependencies: '@npm/test',
     })
@@ -235,7 +235,7 @@ t.test('fixBundleDependenciesField', async t => {
   })
 
   t.test('filters non strings', async t => {
-    const { content } = normalizeData(t, {
+    const { content } = await normalizeData(t, {
       ...base,
       dependencies: { '@npm/test': '*' },
       bundleDependencies: ['@npm/test', 100],
@@ -244,7 +244,7 @@ t.test('fixBundleDependenciesField', async t => {
   })
 
   t.test('non-dependency', async t => {
-    const { content } = normalizeData(t, {
+    const { content } = await normalizeData(t, {
       ...base,
       bundleDependencies: ['@npm/test'],
     })
@@ -254,7 +254,7 @@ t.test('fixBundleDependenciesField', async t => {
 
 t.test('fixHomepageField', async t => {
   t.test('no homepage with repository with url', async t => {
-    const { content } = normalizeData(t, {
+    const { content } = await normalizeData(t, {
       ...base,
       repository: {
         url: 'git+https://github.com/npm/package-json.git',
@@ -264,7 +264,7 @@ t.test('fixHomepageField', async t => {
   })
 
   t.test('non string', async t => {
-    const { content } = normalizeData(t, {
+    const { content } = await normalizeData(t, {
       ...base,
       homepage: true,
     })
@@ -272,7 +272,7 @@ t.test('fixHomepageField', async t => {
   })
 
   t.test('no protocol', async t => {
-    const { content } = normalizeData(t, {
+    const { content } = await normalizeData(t, {
       ...base,
       homepage: 'npmjs.org',
     })
@@ -280,7 +280,7 @@ t.test('fixHomepageField', async t => {
   })
 
   t.test('repository w/ no docs template', async t => {
-    const { content } = normalizeData(t, {
+    const { content } = await normalizeData(t, {
       ...base,
       repository: { url: 'https://git.sr.ht/example/repo.git' },
     })
@@ -288,7 +288,7 @@ t.test('fixHomepageField', async t => {
   })
 
   t.test('non hosted repository', async t => {
-    const { content } = normalizeData(t, {
+    const { content } = await normalizeData(t, {
       ...base,
       repository: { url: 'https://npmjs.org' },
     })
@@ -298,7 +298,7 @@ t.test('fixHomepageField', async t => {
 
 t.test('fixReadmeField', async t => {
   t.test('no readme', async t => {
-    const { content } = normalizeData(t, {
+    const { content } = await normalizeData(t, {
       ...base,
       readme: undefined,
     })
@@ -308,7 +308,7 @@ t.test('fixReadmeField', async t => {
 
 t.test('fixLicenseField', async t => {
   t.test('missing', async t => {
-    const { content } = normalizeData(t, {
+    const { content } = await normalizeData(t, {
       ...base,
       license: undefined,
     })
@@ -316,7 +316,7 @@ t.test('fixLicenseField', async t => {
   })
 
   t.test('non string', async t => {
-    const { content } = normalizeData(t, {
+    const { content } = await normalizeData(t, {
       ...base,
       license: 100,
     })
@@ -324,7 +324,7 @@ t.test('fixLicenseField', async t => {
   })
 
   t.test('invalid', async t => {
-    const { content } = normalizeData(t, {
+    const { content } = await normalizeData(t, {
       ...base,
       license: 'BESPOKE LICENSE',
     })
@@ -335,7 +335,7 @@ t.test('fixLicenseField', async t => {
 t.test('fixPeople', async t => {
   t.test('author', async t => {
     t.test('string', async t => {
-      const { content } = normalizeData(t, {
+      const { content } = await normalizeData(t, {
         ...base,
         author: 'npm',
       })
@@ -343,7 +343,7 @@ t.test('fixPeople', async t => {
     })
 
     t.test('no name', async t => {
-      const { content } = normalizeData(t, {
+      const { content } = await normalizeData(t, {
         ...base,
         author: {
           url: 'https://npmjs.org',
@@ -355,7 +355,7 @@ t.test('fixPeople', async t => {
     })
 
     t.test('name url and email', async t => {
-      const { content } = normalizeData(t, {
+      const { content } = await normalizeData(t, {
         ...base,
         author: {
           name: 'npm',
@@ -371,7 +371,7 @@ t.test('fixPeople', async t => {
     })
 
     t.test('web and mail', async t => {
-      const { content } = normalizeData(t, {
+      const { content } = await normalizeData(t, {
         ...base,
         author: {
           name: 'npm',
@@ -387,7 +387,7 @@ t.test('fixPeople', async t => {
     })
 
     t.test('only name', async t => {
-      const { content } = normalizeData(t, {
+      const { content } = await normalizeData(t, {
         ...base,
         author: {
           name: 'npm',
@@ -398,7 +398,7 @@ t.test('fixPeople', async t => {
   })
 
   t.test('maintainers', async t => {
-    const { content } = normalizeData(t, {
+    const { content } = await normalizeData(t, {
       ...base,
       maintainers: ['npm'],
     })
@@ -406,7 +406,7 @@ t.test('fixPeople', async t => {
   })
 
   t.test('contributors', async t => {
-    const { content } = normalizeData(t, {
+    const { content } = await normalizeData(t, {
       ...base,
       contributors: ['npm'],
     })
@@ -416,7 +416,7 @@ t.test('fixPeople', async t => {
 
 t.test('fixTypos', async t => {
   t.test('top level', async t => {
-    const { content } = normalizeData(t, {
+    const { content } = await normalizeData(t, {
       ...base,
       script: {
         lint: 'npm run lint',
