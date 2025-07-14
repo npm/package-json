@@ -127,3 +127,9 @@ Array [
   "\\"_id\\" was set to underscore@1.2.3",
 ]
 `
+
+exports[`test/normalize.js TAP syncNormalize with opts > must match snapshot 1`] = `
+Array [
+  "\\"_id\\" was set to @npmcli/test@1.0.0-sync",
+]
+`

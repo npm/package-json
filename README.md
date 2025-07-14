@@ -144,6 +144,10 @@ Like `normalize` but intended for preparing package.json files for publish.
 
 ---
 
+### `PackageJson.syncNormalize()`
+
+This calls normalize synchronously.  Most consumers of this package should avoid using this.  It was added because some parts of npm were normalizing package content in class constructors and needed this affordance.  It will silently ignore any asynchronous steps asked for.  Again, this is a compatiblity affordance for some code in npm that is currently impossible to change without a significant semver major change, and is best not used.
+
 ### **static** `async PackageJson.prepare(path, opts = {})`
 
 Convenience static that calls `load` before calling `prepare`
