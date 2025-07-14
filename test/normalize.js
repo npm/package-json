@@ -1,19 +1,19 @@
 const t = require('tap')
-const pkg = require('../')
+const Pkg = require('../')
 
 const testMethods = {
   // eslint-disable-next-line max-len
   '@npmcli/package-json - with changes': async (t, testdir = {}, { dir = (v) => v, ...opts } = {}) => {
     const p = t.testdir(testdir)
     const changes = []
-    const normalized = await pkg.normalize(dir(p), { ...opts, changes })
+    const normalized = await Pkg.normalize(dir(p), { ...opts, changes })
     t.matchSnapshot(changes)
     return normalized
   },
   // eslint-disable-next-line max-len
   '@npmcli/package-json - no changes': async (t, testdir = {}, { dir = (v) => v, ...opts } = {}) => {
     const p = t.testdir(testdir)
-    return pkg.normalize(dir(p), opts)
+    return Pkg.normalize(dir(p), opts)
   },
 }
 
@@ -287,38 +287,38 @@ for (const [name, testNormalize] of Object.entries(testMethods)) {
       })
       const i = Symbol.for('indent')
       const n = Symbol.for('newline')
-      t.equal((await pkg.normalize(`${path}/none`)).content[i], '')
-      t.equal((await pkg.normalize(`${path}/none`)).content[n], '')
-      t.equal((await pkg.normalize(`${path}/twospace`)).content[i], '  ')
-      t.equal((await pkg.normalize(`${path}/twospace`)).content[n], '\n')
-      t.equal((await pkg.normalize(`${path}/tab`)).content[i], '\t')
-      t.equal((await pkg.normalize(`${path}/tab`)).content[n], '\n')
-      t.equal((await pkg.normalize(`${path}/weird`)).content[i], ' \t \t ')
-      t.equal((await pkg.normalize(`${path}/weird`)).content[n], '\n')
-      t.equal((await pkg.normalize(`${path}/winEol/none`)).content[i], '')
-      t.equal((await pkg.normalize(`${path}/winEol/none`)).content[n], '')
-      t.equal((await pkg.normalize(`${path}/winEol/twospace`)).content[i], '  ')
-      t.equal((await pkg.normalize(`${path}/winEol/twospace`)).content[n], '\r\n')
-      t.equal((await pkg.normalize(`${path}/winEol/tab`)).content[i], '\t')
-      t.equal((await pkg.normalize(`${path}/winEol/tab`)).content[n], '\r\n')
-      t.equal((await pkg.normalize(`${path}/winEol/weird`)).content[i], ' \t \t ')
-      t.equal((await pkg.normalize(`${path}/winEol/weird`)).content[n], '\r\n')
-      t.equal((await pkg.normalize(`${path}/doubleSpaced/none`)).content[i], '')
-      t.equal((await pkg.normalize(`${path}/doubleSpaced/none`)).content[n], '')
-      t.equal((await pkg.normalize(`${path}/doubleSpaced/twospace`)).content[i], '  ')
-      t.equal((await pkg.normalize(`${path}/doubleSpaced/twospace`)).content[n], '\n\n')
-      t.equal((await pkg.normalize(`${path}/doubleSpaced/tab`)).content[i], '\t')
-      t.equal((await pkg.normalize(`${path}/doubleSpaced/tab`)).content[n], '\n\n')
-      t.equal((await pkg.normalize(`${path}/doubleSpaced/weird`)).content[i], ' \t \t ')
-      t.equal((await pkg.normalize(`${path}/doubleSpaced/weird`)).content[n], '\n\n')
-      t.equal((await pkg.normalize(`${path}/doubleWin/none`)).content[i], '')
-      t.equal((await pkg.normalize(`${path}/doubleWin/none`)).content[n], '')
-      t.equal((await pkg.normalize(`${path}/doubleWin/twospace`)).content[i], '  ')
-      t.equal((await pkg.normalize(`${path}/doubleWin/twospace`)).content[n], '\r\n\r\n')
-      t.equal((await pkg.normalize(`${path}/doubleWin/tab`)).content[i], '\t')
-      t.equal((await pkg.normalize(`${path}/doubleWin/tab`)).content[n], '\r\n\r\n')
-      t.equal((await pkg.normalize(`${path}/doubleWin/weird`)).content[i], ' \t \t ')
-      t.equal((await pkg.normalize(`${path}/doubleWin/weird`)).content[n], '\r\n\r\n')
+      t.equal((await Pkg.normalize(`${path}/none`)).content[i], '')
+      t.equal((await Pkg.normalize(`${path}/none`)).content[n], '')
+      t.equal((await Pkg.normalize(`${path}/twospace`)).content[i], '  ')
+      t.equal((await Pkg.normalize(`${path}/twospace`)).content[n], '\n')
+      t.equal((await Pkg.normalize(`${path}/tab`)).content[i], '\t')
+      t.equal((await Pkg.normalize(`${path}/tab`)).content[n], '\n')
+      t.equal((await Pkg.normalize(`${path}/weird`)).content[i], ' \t \t ')
+      t.equal((await Pkg.normalize(`${path}/weird`)).content[n], '\n')
+      t.equal((await Pkg.normalize(`${path}/winEol/none`)).content[i], '')
+      t.equal((await Pkg.normalize(`${path}/winEol/none`)).content[n], '')
+      t.equal((await Pkg.normalize(`${path}/winEol/twospace`)).content[i], '  ')
+      t.equal((await Pkg.normalize(`${path}/winEol/twospace`)).content[n], '\r\n')
+      t.equal((await Pkg.normalize(`${path}/winEol/tab`)).content[i], '\t')
+      t.equal((await Pkg.normalize(`${path}/winEol/tab`)).content[n], '\r\n')
+      t.equal((await Pkg.normalize(`${path}/winEol/weird`)).content[i], ' \t \t ')
+      t.equal((await Pkg.normalize(`${path}/winEol/weird`)).content[n], '\r\n')
+      t.equal((await Pkg.normalize(`${path}/doubleSpaced/none`)).content[i], '')
+      t.equal((await Pkg.normalize(`${path}/doubleSpaced/none`)).content[n], '')
+      t.equal((await Pkg.normalize(`${path}/doubleSpaced/twospace`)).content[i], '  ')
+      t.equal((await Pkg.normalize(`${path}/doubleSpaced/twospace`)).content[n], '\n\n')
+      t.equal((await Pkg.normalize(`${path}/doubleSpaced/tab`)).content[i], '\t')
+      t.equal((await Pkg.normalize(`${path}/doubleSpaced/tab`)).content[n], '\n\n')
+      t.equal((await Pkg.normalize(`${path}/doubleSpaced/weird`)).content[i], ' \t \t ')
+      t.equal((await Pkg.normalize(`${path}/doubleSpaced/weird`)).content[n], '\n\n')
+      t.equal((await Pkg.normalize(`${path}/doubleWin/none`)).content[i], '')
+      t.equal((await Pkg.normalize(`${path}/doubleWin/none`)).content[n], '')
+      t.equal((await Pkg.normalize(`${path}/doubleWin/twospace`)).content[i], '  ')
+      t.equal((await Pkg.normalize(`${path}/doubleWin/twospace`)).content[n], '\r\n\r\n')
+      t.equal((await Pkg.normalize(`${path}/doubleWin/tab`)).content[i], '\t')
+      t.equal((await Pkg.normalize(`${path}/doubleWin/tab`)).content[n], '\r\n\r\n')
+      t.equal((await Pkg.normalize(`${path}/doubleWin/weird`)).content[i], ' \t \t ')
+      t.equal((await Pkg.normalize(`${path}/doubleWin/weird`)).content[n], '\r\n\r\n')
     })
 
     t.test('strip _fields', async t => {
@@ -364,3 +364,33 @@ for (const [name, testNormalize] of Object.entries(testMethods)) {
     })
   })
 }
+
+t.test('syncNormalize', t => {
+  t.test('with opts', t => {
+    const p = new Pkg()
+    const changes = []
+    p.fromContent({
+      name: '@npmcli/test',
+      version: '1.0.0-sync',
+      _integrity: 'something',
+    })
+    p.syncNormalize({ changes })
+    t.matchSnapshot(changes)
+    t.equal(p.content._id, '@npmcli/test@1.0.0-sync')
+    t.equal(p.content._integrity, 'something')
+    t.end()
+  })
+  t.test('without opts', t => {
+    const p = new Pkg()
+    p.fromContent({
+      name: '@npmcli/test',
+      version: '1.0.0-sync',
+      _integrity: 'something',
+    })
+    p.syncNormalize()
+    t.equal(p.content._id, '@npmcli/test@1.0.0-sync')
+    t.equal(p.content._integrity, 'something')
+    t.end()
+  })
+  t.end()
+})

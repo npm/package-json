@@ -1,6 +1,6 @@
 const t = require('tap')
 const PackageJson = require('../')
-const normalize = require('../lib/normalize.js')
+const { normalize } = require('../lib/normalize.js')
 
 const pkg = (data = {}) => {
   return JSON.stringify({
