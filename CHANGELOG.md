@@ -1,5 +1,30 @@
 # Changelog
 
+## [7.0.0](https://github.com/npm/package-json/compare/v6.2.0...v7.0.0) (2025-07-25)
+### ⚠️ BREAKING CHANGES
+* `package-json` now supports node `^20.17.0 || >=22.9.0`
+### Features
+* [`9dd0eb5`](https://github.com/npm/package-json/commit/9dd0eb52ab851f5c89f2d12b569fcc4a395b4e05) [#144](https://github.com/npm/package-json/pull/144) add syncNormalize (@wraithgar)
+* [`08eae47`](https://github.com/npm/package-json/commit/08eae4767be22343453984bce953d767643d47a8) [#144](https://github.com/npm/package-json/pull/144) add binDir step to normalize function (@wraithgar)
+### Bug Fixes
+* [`a5e4ac3`](https://github.com/npm/package-json/commit/a5e4ac3ab364b83afd86517d83f451e4762ed1f8) [#152](https://github.com/npm/package-json/pull/152) align to npm 11 node engine range (@owlstronaut)
+* [`4695e87`](https://github.com/npm/package-json/commit/4695e876df8a8488862eb158f235dbe7608cb1e9) [#150](https://github.com/npm/package-json/pull/150) use `URL.canParse` instead of runtime deprecated `url.parse` api (#150) (@SuperchupuDev)
+* [`dbc9ef1`](https://github.com/npm/package-json/commit/dbc9ef12c5f0a73b8f734ebe27f325bf289b1a69) [#144](https://github.com/npm/package-json/pull/144) require an object in fromContent() (@wraithgar)
+* [`f06eb18`](https://github.com/npm/package-json/commit/f06eb1879e988813baba80896f99cf778c89199f) [#144](https://github.com/npm/package-json/pull/144) remove unused bundleDependenciesFalse (@wraithgar)
+* [`a8b1cc9`](https://github.com/npm/package-json/commit/a8b1cc9d7339c1c84d379545d9996b953858a6bb) [#144](https://github.com/npm/package-json/pull/144) secure and unixify paths discovered via directories.bin (@wraithgar)
+* [`23c29a9`](https://github.com/npm/package-json/commit/23c29a9f66707b91d9401d104bd33bbe59ddc715) [#144](https://github.com/npm/package-json/pull/144) remove erroneous bundledDependencies log (@wraithgar)
+### Documentation
+* [`14f8141`](https://github.com/npm/package-json/commit/14f8141fec4a865cb4586937e0659390238edb71) [#147](https://github.com/npm/package-json/pull/147) adding sort option docs to README (#147) (@idhard)
+### Dependencies
+* [`a0dcfde`](https://github.com/npm/package-json/commit/a0dcfde4b10ecbb826cb41bae61d60d261bd9a24) [#152](https://github.com/npm/package-json/pull/152) `hosted-git-info@9.0.0`
+* [`41128c1`](https://github.com/npm/package-json/commit/41128c1ca85b882dab4db5f1af1688fadd935904) [#152](https://github.com/npm/package-json/pull/152) `glob@11.0.3`
+### Chores
+* [`a179a87`](https://github.com/npm/package-json/commit/a179a8796a55948865e9b308c750c54fbc2270ce) [#144](https://github.com/npm/package-json/pull/144) fix tests to await async normalize (@wraithgar)
+* [`203fec8`](https://github.com/npm/package-json/commit/203fec813379bf479d8deb4f68526b2373f0d6c6) [#144](https://github.com/npm/package-json/pull/144) remove read-package-json (@wraithgar)
+* [`7bde184`](https://github.com/npm/package-json/commit/7bde18448299c0ec904df573125e524eed566b98) [#144](https://github.com/npm/package-json/pull/144) remove read-package-json-fast (@wraithgar)
+* [`394192d`](https://github.com/npm/package-json/commit/394192d632511bdcbc92cd9b562a7642e8fb06be) [#144](https://github.com/npm/package-json/pull/144) remove backward compatiblity tests (@wraithgar)
+* [`6e89e39`](https://github.com/npm/package-json/commit/6e89e3960c8c16c2797eeaba70e4062ab15c3267) [#148](https://github.com/npm/package-json/pull/148) bump @npmcli/template-oss from 4.23.6 to 4.25.0 (#148) (@dependabot[bot], @owlstronaut)
+
 ## [6.2.0](https://github.com/npm/package-json/compare/v6.1.1...v6.2.0) (2025-05-21)
 ### Features
 * [`228539f`](https://github.com/npm/package-json/commit/228539fe73402e28d1f5b875f34cd5aeb0474d2e) [#145](https://github.com/npm/package-json/pull/145) adds fixName step for publishing (#145) (@owlstronaut)
