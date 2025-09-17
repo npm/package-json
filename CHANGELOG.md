@@ -1,5 +1,9 @@
 # Changelog
 
+## [7.0.1](https://github.com/npm/package-json/compare/v7.0.0...v7.0.1) (2025-09-17)
+### Dependencies
+* [`1364087`](https://github.com/npm/package-json/commit/13640879793db90d4e330fb03146c2d4061688a1) [#153](https://github.com/npm/package-json/pull/153) `@npmcli/git@7.0.0` (#153)
+
 ## [7.0.0](https://github.com/npm/package-json/compare/v6.2.0...v7.0.0) (2025-07-25)
 ### ⚠️ BREAKING CHANGES
 * `package-json` now supports node `^20.17.0 || >=22.9.0`
