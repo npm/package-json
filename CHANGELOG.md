@@ -1,5 +1,11 @@
 # Changelog
 
+## [7.0.2](https://github.com/npm/package-json/compare/v7.0.1...v7.0.2) (2025-09-26)
+### Bug Fixes
+* [`7f3afb6`](https://github.com/npm/package-json/commit/7f3afb66e20be1d6acca710aa2f76126bf5a1854) [#156](https://github.com/npm/package-json/pull/156) comment typo (#156) (@Clozent)
+### Chores
+* [`4a179ea`](https://github.com/npm/package-json/commit/4a179ea13d4e5a4e480bd7c6a0e912001c6636c9) [#155](https://github.com/npm/package-json/pull/155) bump @npmcli/template-oss from 4.25.0 to 4.25.1 (#155) (@dependabot[bot], @owlstronaut)
+
 ## [7.0.1](https://github.com/npm/package-json/compare/v7.0.0...v7.0.1) (2025-09-17)
 ### Dependencies
 * [`1364087`](https://github.com/npm/package-json/commit/13640879793db90d4e330fb03146c2d4061688a1) [#153](https://github.com/npm/package-json/pull/153) `@npmcli/git@7.0.0` (#153)
