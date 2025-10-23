@@ -33,7 +33,7 @@
     "glob": "^11.0.3",
     "hosted-git-info": "^9.0.0",
     "json-parse-even-better-errors": "^5.0.0",
-    "proc-log": "^5.0.0",
+    "proc-log": "^6.0.0",
     "semver": "^7.5.3",
     "validate-npm-package-license": "^3.0.4"
   },
