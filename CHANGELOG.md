@@ -1,5 +1,15 @@
 # Changelog
 
+## [7.0.2](https://github.com/npm/package-json/compare/v7.0.1...v7.0.2) (2025-10-30)
+### Bug Fixes
+* [`7f3afb6`](https://github.com/npm/package-json/commit/7f3afb66e20be1d6acca710aa2f76126bf5a1854) [#156](https://github.com/npm/package-json/pull/156) comment typo (#156) (@Clozent)
+### Dependencies
+* [`0393243`](https://github.com/npm/package-json/commit/0393243ef4c4112bebef905eb981ea0f4ea88cc4) [#160](https://github.com/npm/package-json/pull/160) bump proc-log from 5.0.0 to 6.0.0 (#160) (@dependabot[bot])
+* [`f3c7926`](https://github.com/npm/package-json/commit/f3c7926041c78265c1e4a818fa9a2bcefbd4d0f3) [#161](https://github.com/npm/package-json/pull/161) bump json-parse-even-better-errors from 4.0.0 to 5.0.0 (#161) (@dependabot[bot])
+### Chores
+* [`4a80b15`](https://github.com/npm/package-json/commit/4a80b158f8846d2f22093d7a95f733840c349832) [#162](https://github.com/npm/package-json/pull/162) bump @npmcli/eslint-config from 5.1.0 to 6.0.0 (#162) (@dependabot[bot])
+* [`e093242`](https://github.com/npm/package-json/commit/e093242430a2407d06bb6310a64e6e499d013a81) [#163](https://github.com/npm/package-json/pull/163) bump @npmcli/template-oss from 4.27.1 to 4.28.0 (#163) (@dependabot[bot], @npm-cli-bot)
+
 ## [7.0.1](https://github.com/npm/package-json/compare/v7.0.0...v7.0.1) (2025-09-17)
 ### Dependencies
 * [`1364087`](https://github.com/npm/package-json/commit/13640879793db90d4e330fb03146c2d4061688a1) [#153](https://github.com/npm/package-json/pull/153) `@npmcli/git@7.0.0` (#153)
