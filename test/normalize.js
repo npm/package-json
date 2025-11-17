@@ -172,6 +172,20 @@ for (const [name, testNormalize] of Object.entries(testMethods)) {
       t.strictSame(content.bin, { echo: 'bin/echo' })
     })
 
+    t.test('directories.bin without filesystem path', async t => {
+      const p = new Pkg()
+      p.fromContent({
+        name: 'registry-test',
+        version: '1.0.0',
+        directories: {
+          bin: './bin',
+        },
+      })
+      await p.normalize({ steps: Pkg.normalizeSteps })
+      t.notOk(p.content.bin, 'bin should not be expanded without filesystem path')
+      t.ok(p.content.directories.bin, 'directories.bin should be preserved')
+    })
+
     t.test('dedupe optional deps out of regular deps', async t => {
       t.test('choose optional deps in conflict, removing empty dependencies', async t => {
         const { content } = await testNormalize(t, ({
