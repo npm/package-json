@@ -1,6 +1,6 @@
 {
   "name": "@npmcli/package-json",
-  "version": "7.0.3",
+  "version": "7.0.4",
   "description": "Programmatic API to update package.json",
   "keywords": [
     "npm",

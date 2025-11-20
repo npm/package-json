@@ -1,5 +1,9 @@
 # Changelog
 
+## [7.0.4](https://github.com/npm/package-json/compare/v7.0.3...v7.0.4) (2025-11-20)
+### Dependencies
+* [`e33b13e`](https://github.com/npm/package-json/commit/e33b13e392e1e72460e488cad727199e621d7fb3) [#167](https://github.com/npm/package-json/pull/167) bump glob from 12.0.0 to 13.0.0 (#167) (@dependabot[bot])
+
 ## [7.0.3](https://github.com/npm/package-json/compare/v7.0.2...v7.0.3) (2025-11-18)
 ### Bug Fixes
 * [`57952b8`](https://github.com/npm/package-json/commit/57952b808317d8495750f195158c6bb7f4704a63) [#164](https://github.com/npm/package-json/pull/164) prevent crash when expanding directories.bin without filesystem path (#164) (@MaxBlack-dev, Max Black)
