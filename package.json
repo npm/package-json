@@ -34,7 +34,8 @@
     "hosted-git-info": "^9.0.0",
     "json-parse-even-better-errors": "^5.0.0",
     "proc-log": "^6.0.0",
-    "semver": "^7.5.3"
+    "semver": "^7.5.3",
+    "spdx-expression-parse": "^4.0.0"
   },
   "devDependencies": {
     "@npmcli/eslint-config": "^6.0.0",
