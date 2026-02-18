@@ -166,6 +166,18 @@ exports[`test/normalize-data.js TAP fixKeywordsField splits string > must match 
 Array []
 `
 
+exports[`test/normalize-data.js TAP fixLicenseField SPDX > must match snapshot 1`] = `
+Array []
+`
+
+exports[`test/normalize-data.js TAP fixLicenseField SPDX LEFT and RIGHT > must match snapshot 1`] = `
+Array []
+`
+
+exports[`test/normalize-data.js TAP fixLicenseField file ref > must match snapshot 1`] = `
+Array []
+`
+
 exports[`test/normalize-data.js TAP fixLicenseField invalid > must match snapshot 1`] = `
 Array [
   "license should be a valid SPDX license expression",
