@@ -330,6 +330,30 @@ t.test('fixLicenseField', async t => {
     })
     t.equal(content.license, 'BESPOKE LICENSE')
   })
+
+  t.test('SPDX', async t => {
+    const { content } = await normalizeData(t, {
+      ...base,
+      license: 'MIT',
+    })
+    t.equal(content.license, 'MIT')
+  })
+
+  t.test('file ref', async t => {
+    const { content } = await normalizeData(t, {
+      ...base,
+      license: 'SEE LICENSE IN LICENSE.TXT',
+    })
+    t.equal(content.license, 'SEE LICENSE IN LICENSE.TXT')
+  })
+
+  t.test('SPDX LEFT and RIGHT', async t => {
+    const { content } = await normalizeData(t, {
+      ...base,
+      license: 'MIT or ISC',
+    })
+    t.equal(content.license, 'MIT or ISC')
+  })
 })
 
 t.test('fixPeople', async t => {
