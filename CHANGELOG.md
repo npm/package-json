@@ -1,5 +1,14 @@
 # Changelog
 
+## [7.0.5](https://github.com/npm/package-json/compare/v7.0.4...v7.0.5) (2026-02-18)
+### Bug Fixes
+* [`09b981d`](https://github.com/npm/package-json/commit/09b981db4a566dd743864bbef17ec7c7a65fcf03) [#172](https://github.com/npm/package-json/pull/172) inline license validation code (@wraithgar)
+### Dependencies
+* [`cb3e677`](https://github.com/npm/package-json/commit/cb3e6770c1412629e03997775a63d7b49defb69d) [#172](https://github.com/npm/package-json/pull/172) `spdx-expression-parse@4.0.0`
+* [`61738b2`](https://github.com/npm/package-json/commit/61738b2345624e25fab0df6a7f5a1d116ee9babd) [#172](https://github.com/npm/package-json/pull/172) remove validate-npm-package-license
+### Chores
+* [`bd3b7ea`](https://github.com/npm/package-json/commit/bd3b7eafa70c17ae96778386572ff98a5c01baff) [#169](https://github.com/npm/package-json/pull/169) bump @npmcli/template-oss from 4.28.0 to 4.28.1 (#169) (@dependabot[bot], @npm-cli-bot)
+
 ## [7.0.4](https://github.com/npm/package-json/compare/v7.0.3...v7.0.4) (2025-11-20)
 ### Dependencies
 * [`e33b13e`](https://github.com/npm/package-json/commit/e33b13e392e1e72460e488cad727199e621d7fb3) [#167](https://github.com/npm/package-json/pull/167) bump glob from 12.0.0 to 13.0.0 (#167) (@dependabot[bot])
