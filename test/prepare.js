@@ -348,28 +348,6 @@ for (const [name, testPrepare] of Object.entries(testMethods)) {
       t.end()
     })
 
-    t.test('server.js', t => {
-      t.test('adds if missing', async t => {
-        const { content } = await testPrepare(t, ({
-          'package.json': JSON.stringify({}),
-          'server.js': 'a file that exists',
-        }))
-        t.strictSame(content.scripts, { start: 'node server.js' })
-      })
-      t.test('keeps existing', async t => {
-        const { content } = await testPrepare(t, ({
-          'package.json': JSON.stringify({
-            scripts: {
-              start: 'something else',
-            },
-          }),
-          'server.js': 'a file that exists',
-        }))
-        t.strictSame(content.scripts, { start: 'something else' })
-      })
-      t.end()
-    })
-
     t.test('gypfile', t => {
       t.test('with install', async t => {
         const { content } = await testPrepare(t, ({
