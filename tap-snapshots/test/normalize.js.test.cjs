@@ -46,6 +46,44 @@ Array [
 ]
 `
 
+exports[`test/normalize.js TAP @npmcli/package-json - with changes clean up overrides no-op when overrides is absent > must match snapshot 1`] = `
+Array []
+`
+
+exports[`test/normalize.js TAP @npmcli/package-json - with changes clean up overrides preserve a non-empty overrides object as-is > must match snapshot 1`] = `
+Array []
+`
+
+exports[`test/normalize.js TAP @npmcli/package-json - with changes clean up overrides remove empty overrides object > must match snapshot 1`] = `
+Array [
+  "Empty \\"overrides\\" was removed",
+]
+`
+
+exports[`test/normalize.js TAP @npmcli/package-json - with changes clean up overrides remove overrides when set to a string > must match snapshot 1`] = `
+Array [
+  "\\"overrides\\" was removed (must be an object)",
+]
+`
+
+exports[`test/normalize.js TAP @npmcli/package-json - with changes clean up overrides remove overrides when set to an array > must match snapshot 1`] = `
+Array [
+  "\\"overrides\\" was removed (must be an object)",
+]
+`
+
+exports[`test/normalize.js TAP @npmcli/package-json - with changes clean up overrides remove overrides when set to false > must match snapshot 1`] = `
+Array [
+  "\\"overrides\\" was removed (must be an object)",
+]
+`
+
+exports[`test/normalize.js TAP @npmcli/package-json - with changes clean up overrides remove overrides when set to null > must match snapshot 1`] = `
+Array [
+  "\\"overrides\\" was removed (must be an object)",
+]
+`
+
 exports[`test/normalize.js TAP @npmcli/package-json - with changes clean up scripts delete non-object scripts > must match snapshot 1`] = `
 Array [
   "Removed invalid \\"scripts\\"",

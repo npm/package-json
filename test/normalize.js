@@ -94,6 +94,71 @@ for (const [name, testNormalize] of Object.entries(testMethods)) {
       })
     })
 
+    t.test('clean up overrides', async t => {
+      t.test('preserve a non-empty overrides object as-is', async t => {
+        const { content } = await testNormalize(t, ({
+          'package.json': JSON.stringify({
+            overrides: { foo: '1.0.0' },
+          }),
+        }))
+        t.strictSame(content.overrides, { foo: '1.0.0' })
+      })
+
+      t.test('remove empty overrides object', async t => {
+        const { content } = await testNormalize(t, ({
+          'package.json': JSON.stringify({
+            overrides: {},
+          }),
+        }))
+        t.notOk('overrides' in content, '"overrides" was removed')
+      })
+
+      t.test('remove overrides when set to null', async t => {
+        const { content } = await testNormalize(t, ({
+          'package.json': JSON.stringify({
+            overrides: null,
+          }),
+        }))
+        t.notOk('overrides' in content, '"overrides" was removed')
+      })
+
+      t.test('remove overrides when set to a string', async t => {
+        const { content } = await testNormalize(t, ({
+          'package.json': JSON.stringify({
+            overrides: '1.0.0',
+          }),
+        }))
+        t.notOk('overrides' in content, '"overrides" was removed')
+      })
+
+      t.test('remove overrides when set to an array', async t => {
+        const { content } = await testNormalize(t, ({
+          'package.json': JSON.stringify({
+            overrides: ['foo'],
+          }),
+        }))
+        t.notOk('overrides' in content, '"overrides" was removed')
+      })
+
+      t.test('remove overrides when set to false', async t => {
+        const { content } = await testNormalize(t, ({
+          'package.json': JSON.stringify({
+            overrides: false,
+          }),
+        }))
+        t.notOk('overrides' in content, '"overrides" was removed')
+      })
+
+      t.test('no-op when overrides is absent', async t => {
+        const { content } = await testNormalize(t, ({
+          'package.json': JSON.stringify({
+            name: 'no-overrides',
+          }),
+        }))
+        t.notOk('overrides' in content, 'still no "overrides"')
+      })
+    })
+
     t.test('clean up scripts', async t => {
       t.test('delete non-object scripts', async t => {
         const { content } = await testNormalize(t, ({
