@@ -1,5 +1,16 @@
 # Changelog
 
+## [8.0.0](https://github.com/npm/package-json/compare/v7.0.5...v8.0.0) (2026-04-28)
+### ⚠️ BREAKING CHANGES
+* The "server.js" handling was removed, so "scripts.start" will not be set to "node server.js" if a "server.js" file exists.
+### Features
+* [`2ac3b34`](https://github.com/npm/package-json/commit/2ac3b348aecc67ca73cdeba10428cdd455b9d2a8) [#177](https://github.com/npm/package-json/pull/177) normalize the top-level overrides field (@owlstronaut)
+### Bug Fixes
+* [`057fd25`](https://github.com/npm/package-json/commit/057fd255bd5298c52bc7589d2d41b4e2e1e24159) [#174](https://github.com/npm/package-json/pull/174) remove magic "server.js" handling (@owlstronaut)
+### Chores
+* [`1affdf1`](https://github.com/npm/package-json/commit/1affdf1c3ce78b78775ef29faa2f45fa08abb1e9) [#174](https://github.com/npm/package-json/pull/174) template-oss-apply (@owlstronaut)
+* [`ece3cb6`](https://github.com/npm/package-json/commit/ece3cb6c849446bc25d9646a8828dc358d089599) [#170](https://github.com/npm/package-json/pull/170) bump @npmcli/template-oss from 4.28.1 to 4.29.0 (#170) (@dependabot[bot], @npm-cli-bot)
+
 ## [7.0.5](https://github.com/npm/package-json/compare/v7.0.4...v7.0.5) (2026-02-18)
 ### Bug Fixes
 * [`09b981d`](https://github.com/npm/package-json/commit/09b981db4a566dd743864bbef17ec7c7a65fcf03) [#172](https://github.com/npm/package-json/pull/172) inline license validation code (@wraithgar)
