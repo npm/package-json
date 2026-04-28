@@ -348,6 +348,54 @@ for (const [name, testPrepare] of Object.entries(testMethods)) {
       t.end()
     })
 
+    t.test('overrides', t => {
+      t.test('preserves a non-empty object', async t => {
+        const { content } = await testPrepare(t, ({
+          'package.json': JSON.stringify({
+            overrides: { foo: '1.0.0' },
+          }),
+        }))
+        t.strictSame(content.overrides, { foo: '1.0.0' })
+      })
+
+      t.test('removes empty object', async t => {
+        const { content } = await testPrepare(t, ({
+          'package.json': JSON.stringify({
+            overrides: {},
+          }),
+        }))
+        t.has(content, { overrides: undefined })
+      })
+
+      t.test('removes invalid scalar', async t => {
+        const { content } = await testPrepare(t, ({
+          'package.json': JSON.stringify({
+            overrides: '1.0.0',
+          }),
+        }))
+        t.has(content, { overrides: undefined })
+      })
+
+      t.test('removes array', async t => {
+        const { content } = await testPrepare(t, ({
+          'package.json': JSON.stringify({
+            overrides: ['foo'],
+          }),
+        }))
+        t.has(content, { overrides: undefined })
+      })
+
+      t.test('removes null', async t => {
+        const { content } = await testPrepare(t, ({
+          'package.json': JSON.stringify({
+            overrides: null,
+          }),
+        }))
+        t.has(content, { overrides: undefined })
+      })
+      t.end()
+    })
+
     t.test('gypfile', t => {
       t.test('with install', async t => {
         const { content } = await testPrepare(t, ({
