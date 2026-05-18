@@ -38,7 +38,7 @@
     "spdx-expression-parse": "^4.0.0"
   },
   "devDependencies": {
-    "@npmcli/eslint-config": "^6.0.0",
+    "@npmcli/eslint-config": "^7.0.0",
     "@npmcli/template-oss": "4.29.0",
     "tap": "^16.0.1"
   },
