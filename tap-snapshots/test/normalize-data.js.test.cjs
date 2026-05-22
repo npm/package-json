@@ -58,7 +58,9 @@ Array []
 `
 
 exports[`test/normalize-data.js TAP fixBugsField repository w/ no bugs template > must match snapshot 1`] = `
-Array []
+Array [
+  "\\"repository.url\\" was normalized to \\"https://git.sr.ht/example/repo\\"",
+]
 `
 
 exports[`test/normalize-data.js TAP fixBugsField string email > must match snapshot 1`] = `
@@ -147,7 +149,9 @@ Array [
 `
 
 exports[`test/normalize-data.js TAP fixHomepageField repository w/ no docs template > must match snapshot 1`] = `
-Array []
+Array [
+  "\\"repository.url\\" was normalized to \\"https://git.sr.ht/example/repo\\"",
+]
 `
 
 exports[`test/normalize-data.js TAP fixKeywordsField filters non strings > must match snapshot 1`] = `
