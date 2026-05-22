@@ -1,5 +1,29 @@
 # Changelog
 
+## [8.0.0](https://github.com/npm/package-json/compare/v7.0.5...v8.0.0) (2026-05-22)
+### ⚠️ BREAKING CHANGES
+* `@npmcli/package-json` now supports node `^22.22.2 || ^24.15.0 || >=26.0.0`
+* template-oss-apply
+* The "server.js" handling was removed, so "scripts.start" will not be set to "node server.js" if a "server.js" file exists.
+### Features
+* [`b0ebae1`](https://github.com/npm/package-json/commit/b0ebae13296e44689307c7540ac0413ea7b752b9) [#185](https://github.com/npm/package-json/pull/185) bump to new node engine range (@owlstronaut)
+* [`5898ac5`](https://github.com/npm/package-json/commit/5898ac5a81963f35c3631e23de656ec83500dec1) [#185](https://github.com/npm/package-json/pull/185) template-oss-apply (@owlstronaut)
+* [`2ac3b34`](https://github.com/npm/package-json/commit/2ac3b348aecc67ca73cdeba10428cdd455b9d2a8) [#177](https://github.com/npm/package-json/pull/177) normalize the top-level overrides field (@owlstronaut)
+### Bug Fixes
+* [`057fd25`](https://github.com/npm/package-json/commit/057fd255bd5298c52bc7589d2d41b4e2e1e24159) [#174](https://github.com/npm/package-json/pull/174) remove magic "server.js" handling (@owlstronaut)
+### Dependencies
+* [`126f578`](https://github.com/npm/package-json/commit/126f578fc58c38ad6f1dcec70426a565389aa757) [#185](https://github.com/npm/package-json/pull/185) `proc-log@7.0.0`
+* [`fe58bf6`](https://github.com/npm/package-json/commit/fe58bf6be8d8b6a29e29f9a33075abbda1116f2f) [#185](https://github.com/npm/package-json/pull/185) `json-parse-even-better-errors@6.0.0`
+* [`59d01ac`](https://github.com/npm/package-json/commit/59d01ace798bf6dd2af4d791e043e58022f49f0d) [#185](https://github.com/npm/package-json/pull/185) `hosted-git-info@10.1.1`
+* [`1f2ff5f`](https://github.com/npm/package-json/commit/1f2ff5fa3cb4e8465e3cae532374ea2f004bab1f) [#185](https://github.com/npm/package-json/pull/185) `@npmcli/git@8.0.0`
+### Chores
+* [`3188f3d`](https://github.com/npm/package-json/commit/3188f3d3597e76bd761bdeca2585a7768c2864d0) [#185](https://github.com/npm/package-json/pull/185) snapshot update for hosted-git-info change (@owlstronaut)
+* [`c433eb8`](https://github.com/npm/package-json/commit/c433eb8927b2392f5f8908b8449f693ea6b1ccb3) [#185](https://github.com/npm/package-json/pull/185) `@npmcli/eslint-config@7.0.0` (@owlstronaut)
+* [`6212bdf`](https://github.com/npm/package-json/commit/6212bdfbb67070330b16fe06cd25ff0379f6b9f6) [#185](https://github.com/npm/package-json/pull/185) template-oss-apply (@owlstronaut)
+* [`c23823f`](https://github.com/npm/package-json/commit/c23823f14bff37fa08c7f040b54d554a3980a667) [#185](https://github.com/npm/package-json/pull/185) bumping @npmcli/template-oss from 4.29.0 to 5.1.0 (@owlstronaut)
+* [`1affdf1`](https://github.com/npm/package-json/commit/1affdf1c3ce78b78775ef29faa2f45fa08abb1e9) [#174](https://github.com/npm/package-json/pull/174) template-oss-apply (@owlstronaut)
+* [`ece3cb6`](https://github.com/npm/package-json/commit/ece3cb6c849446bc25d9646a8828dc358d089599) [#170](https://github.com/npm/package-json/pull/170) bump @npmcli/template-oss from 4.28.1 to 4.29.0 (#170) (@dependabot[bot], @npm-cli-bot)
+
 ## [7.0.5](https://github.com/npm/package-json/compare/v7.0.4...v7.0.5) (2026-02-18)
 ### Bug Fixes
 * [`09b981d`](https://github.com/npm/package-json/commit/09b981db4a566dd743864bbef17ec7c7a65fcf03) [#172](https://github.com/npm/package-json/pull/172) inline license validation code (@wraithgar)
