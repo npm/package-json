@@ -35,7 +35,7 @@
     "json-parse-even-better-errors": "^6.0.0",
     "proc-log": "^7.0.0",
     "semver": "^7.5.3",
-    "spdx-expression-parse": "^4.0.0"
+    "spdx-expression-parse": "^5.0.0"
   },
   "devDependencies": {
     "@npmcli/eslint-config": "^7.0.0",
