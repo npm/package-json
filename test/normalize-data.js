@@ -307,6 +307,17 @@ t.test('fixReadmeField', async t => {
 })
 
 t.test('fixLicenseField', async t => {
+  const normalizeLegacyLicense = async data => {
+    const changes = []
+    const p = new PackageJson().fromContent({
+      ...base,
+      license: undefined,
+      ...data,
+    })
+    await p.normalize({ steps: 'normalizeData', changes })
+    return { changes, content: p.content }
+  }
+
   t.test('missing', async t => {
     const { content } = await normalizeData(t, {
       ...base,
@@ -353,6 +364,46 @@ t.test('fixLicenseField', async t => {
       license: 'MIT or ISC',
     })
     t.equal(content.license, 'MIT or ISC')
+  })
+
+  t.test('legacy plural fields', async t => {
+    const licenses = [{ type: 'MIT' }, { type: 'ISC' }]
+    const licences = ['MIT', 'ISC']
+
+    const normalizedLicenses = await normalizeLegacyLicense({ licenses })
+    t.strictSame(normalizedLicenses.changes, [])
+    t.strictSame(normalizedLicenses.content.licenses, licenses)
+
+    const normalizedLicences = await normalizeLegacyLicense({ licences })
+    t.strictSame(normalizedLicences.changes, [])
+    t.strictSame(normalizedLicences.content.licences, licences)
+  })
+
+  t.test('invalid legacy plural field', async t => {
+    const { changes } = await normalizeLegacyLicense({
+      licenses: [{ type: 'BESPOKE LICENSE' }],
+    })
+    t.strictSame(changes, ['license should be a valid SPDX license expression'])
+  })
+
+  t.test('legacy plural fallback and precedence', async t => {
+    const fallback = await normalizeLegacyLicense({
+      licenses: {},
+      licences: ['MIT'],
+    })
+    t.strictSame(fallback.changes, [])
+
+    const precedence = await normalizeLegacyLicense({
+      licenses: ['BESPOKE LICENSE'],
+      licences: ['MIT'],
+    })
+    t.strictSame(precedence.changes, ['license should be a valid SPDX license expression'])
+
+    const emptyArray = await normalizeLegacyLicense({
+      licenses: [],
+      licences: ['MIT'],
+    })
+    t.strictSame(emptyArray.changes, ['No license field.'])
   })
 })
 
