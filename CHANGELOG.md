@@ -1,5 +1,11 @@
 # Changelog
 
+## [8.0.1](https://github.com/npm/package-json/compare/v8.0.0...v8.0.1) (2026-11-11)
+### Dependencies
+* [`6bcfdc6`](https://github.com/npm/package-json/commit/6bcfdc679a951c7b8cf944379c5d82789310daa9) [#190](https://github.com/npm/package-json/pull/190) bump glob from 13.0.0 to 14.0.3 (#190) (@jeffkl, @Copilot)
+### Chores
+* [`a7dafdb`](https://github.com/npm/package-json/commit/a7dafdbdee34c96c672862fadde9ae5b594c938e) [#186](https://github.com/npm/package-json/pull/186) bump @npmcli/template-oss from 5.1.0 to 5.1.1 (#186) (@dependabot[bot], @npm-cli-bot)
+
 ## [8.0.0](https://github.com/npm/package-json/compare/v7.0.5...v8.0.0) (2026-05-22)
 ### ⚠️ BREAKING CHANGES
 * `@npmcli/package-json` now supports node `^22.22.2 || ^24.15.0 || >=26.0.0`
