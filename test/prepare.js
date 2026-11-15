@@ -481,6 +481,36 @@ for (const [name, testPrepare] of Object.entries(testMethods)) {
         t.strictSame(content.readme, 'readme file')
       })
 
+      for (const filename of ['readme', 'Readme']) {
+        t.test(`finds ${filename} file`, async t => {
+          // Preserve glob result casing on case-insensitive file systems too.
+          const mockPkg = t.mock('../', {
+            glob: { glob: async () => [filename] },
+          })
+          const dir = t.testdir({
+            'package.json': '{}',
+            [filename]: 'readme file',
+          })
+          const { content } = await mockPkg.prepare(dir, { steps: ['readme'] })
+          t.equal(content.readme, 'readme file')
+          t.equal(content.readmeFilename, filename)
+        })
+      }
+
+      t.test('prefers Markdown to extensionless readme', async t => {
+        const mockPkg = t.mock('../', {
+          glob: { glob: async () => ['readme', 'README.md'] },
+        })
+        const dir = t.testdir({
+          'package.json': '{}',
+          readme: 'no extension',
+          'README.md': 'markdown file',
+        })
+        const { content } = await mockPkg.prepare(dir, { steps: ['readme'] })
+        t.equal(content.readme, 'markdown file')
+        t.equal(content.readmeFilename, 'README.md')
+      })
+
       t.test('ignores directory', async t => {
         const { content } = await testPrepare(t, ({
           'package.json': JSON.stringify({}),
