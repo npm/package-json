@@ -275,6 +275,13 @@ for (const [name, testFix] of Object.entries(testMethods)) {
         const { content } = await testFix(t, testdir)
         t.strictSame(content.bin, { 'test-package': '@npmcli/test-package' })
       })
+      t.test('normalizes a bin target', async t => {
+        const testdir = {
+          'package.json': pkg({ bin: { 'test-package': './bin.js' } }),
+        }
+        const { content } = await testFix(t, testdir)
+        t.strictSame(content.bin, { 'test-package': 'bin.js' })
+      })
       t.test('no bin target', async t => {
         const testdir = {
           'package.json': pkg({ bin: { 'test-package': '/' } }),
