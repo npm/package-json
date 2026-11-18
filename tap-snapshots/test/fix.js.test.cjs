@@ -25,11 +25,16 @@ Array [
 ]
 `
 
+exports[`test/fix.js TAP with changes binRefs normalizes a bin target > must match snapshot 1`] = `
+Array [
+  "\\"bin[test-package]\\" script path was normalized from \\"./bin.js\\" to \\"bin.js\\"",
+]
+`
+
 exports[`test/fix.js TAP with changes binRefs scoped name > must match snapshot 1`] = `
 Array [
   "\\"bin\\" was converted to an object",
   "\\"bin[@npmcli/test-package]\\" was renamed to \\"bin[test-package]\\"",
-  "\\"bin[test-package]\\" script name @npmcli/test-package was invalid and removed",
 ]
 `
 
